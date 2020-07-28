@@ -1,25 +1,18 @@
-![myPass.app](_docs/logo-header.png)
-
-# myPass.app - Open Source Password Manager for mobile and desktop
+# myPass.app
 
 ## Roadmap/TODOs
 
-* [ ] Login Page
-  * [ ] Google account login
-* [ ] Home Page, show password list
-* [ ] Password detail Page
-* [ ] password database
-  * [ ] kdbx 3.x
-  * [ ] save at google driver
+* [x] v0.1 FrontPage
+* [ ] v0.2 User
+  * [ ] API: login\regrister
+  * [ ] FrontPage:Home\Regrister\Login
+* [ ] v0.3 Password detail / Add / Edit Page
+* [ ] v0.4 password List
 
+## 技术架构
+<img src="/doc/img/technology_architecture.png" width="900px"/> 
 
+## 产品设计稿
+<img src="/doc/img/v02.png" width="900px"/> 
 
-## Screenshots
-
-<img src="/doc/Screenshots/6.jpg" width="200px" height="411px" /> 
-<img src="/doc/Screenshots/1.jpg" width="200px" height="411px" />
-<img src="/doc/Screenshots/2.jpg" width="200px" height="411px" />
-<img src="/doc/Screenshots/3.jpg" width="200px" height="411px" />
-<img src="/doc/Screenshots/4.jpg" width="200px" height="411px" />
-<img src="/doc/Screenshots/5.jpg" width="200px" height="411px" />
 
