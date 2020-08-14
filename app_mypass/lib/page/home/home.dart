@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
     Map item,
   ) {
     return Container(
-        height: duSetHeight(33),
+        height: duSetHeight(40),
         width: duSetWidth(375),
         margin: EdgeInsets.only(
           top: duSetHeight(0),
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(
                         top: duSetHeight(0), bottom: duSetHeight(0)),
                     width: duSetWidth(48),
-                    height: duSetHeight(33),
+                    height: duSetHeight(42),
                     // height: duSetHeight(67),
 
                     alignment: Alignment.center,
@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(
                         top: duSetHeight(0), bottom: duSetHeight(0)),
                     width: duSetWidth(250),
-                    height: duSetHeight(33),
+                    height: duSetHeight(40),
                     color: appColorThird,
                     alignment: Alignment.centerLeft,
                     child: Column(
@@ -196,7 +196,7 @@ class _HomePageState extends State<HomePage> {
         "service": "icloud",
         "name": "tongweizj",
         "email": "tongweizj@gmail.com",
-      }, 
+      },
     ];
     return Scaffold(
       appBar: _buildAppBar(),
