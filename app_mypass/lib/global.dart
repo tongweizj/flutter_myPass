@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:app_mypass/common/entitys/entitys.dart';
-import 'package:app_mypass/common/utils/utils.dart';
-import 'package:app_mypass/common/values/values.dart';
+import 'package:app_mypass/core/entitys/entitys.dart';
+import 'package:app_mypass/core/utils/utils.dart';
+import 'package:app_mypass/core/values/values.dart';
 import 'package:flutter/material.dart';
 
 /// 全局配置

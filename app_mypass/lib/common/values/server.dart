@@ -1,1 +1,0 @@
-const SERVER_STRAPI_GRAPHQL_URL = 'http://192.168.0.101:1337';

@@ -1,8 +1,10 @@
 import 'package:app_mypass/global.dart';
-import 'package:app_mypass/routes.dart';
+import 'package:app_mypass/ui/routes.dart';
+import 'package:app_mypass/ui/views/index/index.dart';
+
 import 'package:flutter/material.dart';
 
-import 'page/launch/launch.dart';
+import 'ui/views/launch/launch.dart';
 
 // void main() => runApp(MyApp());
 void main() => Global.init().then((e) => runApp(MyApp()));
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ducafecat.tech',
-      home: LaunchPage(),
+      home: IndexPage(),
       routes: staticRoutes,
       debugShowCheckedModeBanner: false,
     );
