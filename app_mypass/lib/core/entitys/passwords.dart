@@ -37,6 +37,7 @@ class PasswordsListResponseEntity {
       };
 }
 
+///////////////////////////////
 class AppPasswordEntity {
   AppPasswordEntity({
     this.id,

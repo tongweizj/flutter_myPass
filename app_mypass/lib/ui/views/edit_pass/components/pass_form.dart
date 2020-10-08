@@ -1,13 +1,21 @@
+import 'package:app_mypass/core/entitys/entitys.dart';
 import 'package:app_mypass/ui/shared/shared.dart';
-import 'package:app_mypass/ui/views/edit_pass/components/text_edit.dart';
+import 'package:app_mypass/ui/widgets/password_text_field.dart';
 import 'package:flutter/material.dart';
 
-import 'package:app_mypass/core/utils/utils.dart';
-import 'package:app_mypass/core/values/values.dart';
-
 Widget buildPassForm(
-  Map passItemitle,
-) {
+  BuildContext context, {
+  AppPasswordEntity passItem,
+  TextEditingController usernameController,
+  TextEditingController emailController,
+  TextEditingController passController,
+  TextEditingController websiteController,
+}) {
+  print(passItem);
+  usernameController.text = passItem.passUsername;
+  emailController.text = passItem.passEmail;
+  passController.text = passItem.passPassword;
+  websiteController.text = passItem.passWebsite;
   return Container(
       height: 325,
       padding: EdgeInsets.only(
@@ -17,15 +25,31 @@ Widget buildPassForm(
           top: duSetHeight(10)),
       child: Column(
         children: <Widget>[
-          buildTextEdit('姓名', 'gmail'),
+          buildPasswordTextField(context,
+              title: '姓名',
+              value: '',
+              hintText: passItem.passUsername,
+              controller: usernameController),
           Divider(),
-          buildTextEdit('email', 'tongweizj@gmail.com'),
+          buildPasswordTextField(context,
+              title: 'email',
+              value: '',
+              hintText: passItem.passEmail,
+              isEmail: true,
+              controller: emailController),
           Divider(),
-          buildTextEdit('辅助登录', 'tongweizj@gmail.com'),
+          buildPasswordTextField(context,
+              title: '网站',
+              value: '',
+              hintText: passItem.passWebsite,
+              controller: websiteController),
           Divider(),
-          buildTextEdit('密码', '************'),
-          Divider(),
-          buildTextEdit('安全码', '************'),
+          buildPasswordTextField(context,
+              title: '密码',
+              value: '',
+              hintText: '********',
+              isPassword: true,
+              controller: passController),
         ],
       ));
 }

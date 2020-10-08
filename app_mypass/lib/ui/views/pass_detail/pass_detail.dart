@@ -1,3 +1,4 @@
+import 'package:app_mypass/core/entitys/entitys.dart';
 import 'package:app_mypass/core/utils/utils.dart';
 import 'package:app_mypass/core/values/values.dart';
 import 'package:app_mypass/ui/shared/shared.dart';
@@ -13,7 +14,7 @@ class PassDetailPage extends StatefulWidget {
 
 class _PassDetailPageState extends State<PassDetailPage> {
   // 顶部导航
-  Widget _buildAppBar() {
+  Widget _buildAppBar(AppPasswordEntity passItem) {
     return thirdAppBar(
         context: context,
         title: Text(
@@ -42,10 +43,7 @@ class _PassDetailPageState extends State<PassDetailPage> {
           FlatButton(
             textColor: Colors.white,
             onPressed: () {
-              Navigator.pushNamed(
-                context,
-                "/edit_pass",
-              );
+              Navigator.pushNamed(context, "/edit_pass", arguments: passItem);
             },
             child: Text(
               "编辑",
@@ -96,7 +94,7 @@ class _PassDetailPageState extends State<PassDetailPage> {
         ]));
   }
 
-  Widget _buildBlockPassInfo(Map passItem) {
+  Widget _buildBlockPassInfo(AppPasswordEntity passItem) {
     return ListView(
       shrinkWrap: true,
       padding: EdgeInsets.only(
@@ -112,7 +110,7 @@ class _PassDetailPageState extends State<PassDetailPage> {
             ),
           ),
           subtitle: Text(
-            passItem["email"],
+            passItem.passEmail,
             style: TextStyle(
                 fontSize: duSetFontSize(16),
                 color: appTextFifth,
@@ -176,7 +174,7 @@ class _PassDetailPageState extends State<PassDetailPage> {
             ),
           ),
           subtitle: Text(
-            passItem["website"],
+            passItem.passWebsite,
             style: TextStyle(
                 fontSize: duSetFontSize(16),
                 color: appTextFifth,
@@ -295,30 +293,32 @@ class _PassDetailPageState extends State<PassDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    Map _passItem = {
-      "service": "icloud",
-      "name": "tongweizj",
-      "email": "tongweizj@gmail.com",
-      "password": "1234567",
-      "website": "http:icloud.com",
-    };
+    final AppPasswordEntity passItem =
+        ModalRoute.of(context).settings.arguments;
+    // Map _passItem = {
+    //   "service": "icloud",
+    //   "name": "tongweizj",
+    //   "email": "tongweizj@gmail.com",
+    //   "password": "1234567",
+    //   "website": "http:icloud.com",
+    // };
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: _buildAppBar(passItem),
       body: Container(
         color: appBgPrimary,
         child: Column(
           children: <Widget>[
             /// 模块1： 头部
             _buildPageHeader(
-              _passItem["service"],
-              _passItem["name"],
+              passItem.passWebsite,
+              passItem.passUsername,
             ),
 
             /// 模块2： 密码信息
             SizedBox(
               height: duSetHeight(2),
             ),
-            _buildBlockPassInfo(_passItem),
+            _buildBlockPassInfo(passItem),
 
             /// 密码安全程度
             _buildBlockHeader('密码安全程度'),

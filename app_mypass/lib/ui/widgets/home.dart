@@ -44,10 +44,7 @@ Widget buildPassItem(
             GestureDetector(
               onTap: () {
                 print("Container was tapped");
-                Navigator.pushNamed(
-                  context,
-                  "/pass",
-                );
+                Navigator.pushNamed(context, "/pass", arguments: item);
               },
               child: Container(
                   margin: EdgeInsets.only(
@@ -78,10 +75,7 @@ Widget buildPassItem(
             GestureDetector(
               onTap: () {
                 print("Container was tapped");
-                Navigator.pushNamed(
-                  context,
-                  "/pass",
-                );
+                Navigator.pushNamed(context, "/pass", arguments: item);
               },
               child: Container(
                   margin: EdgeInsets.only(

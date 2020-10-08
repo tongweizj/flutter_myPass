@@ -1,13 +1,14 @@
 import 'package:app_mypass/ui/shared/shared.dart';
-import 'package:app_mypass/ui/views/edit_pass/components/text_edit.dart';
+import 'package:app_mypass/ui/widgets/password_text_field.dart';
 import 'package:flutter/material.dart';
 
-import 'package:app_mypass/core/utils/utils.dart';
-import 'package:app_mypass/core/values/values.dart';
-
 Widget buildPassForm(
-  Map passItemitle,
-) {
+  BuildContext context, {
+  TextEditingController usernameController,
+  TextEditingController emailController,
+  TextEditingController passController,
+  TextEditingController websiteController,
+}) {
   return Container(
       height: 325,
       padding: EdgeInsets.only(
@@ -17,13 +18,32 @@ Widget buildPassForm(
           top: duSetHeight(10)),
       child: Column(
         children: <Widget>[
-          buildTextEdit('姓名', 'gmail'),
+          buildPasswordTextField(
+            context,
+            controller: usernameController,
+            title: '姓名',
+            value: '',
+            hintText: '用户名',
+          ),
           Divider(),
-          buildTextEdit('email', 'tongweizj@gmail.com'),
+          buildPasswordTextField(context,
+              controller: emailController,
+              title: 'Email',
+              hintText: 'email',
+              isEmail: true),
           Divider(),
-          buildTextEdit('密码', '************'),
+          buildPasswordTextField(context,
+              controller: passController,
+              title: '密码',
+              value: '',
+              hintText: '用户名',
+              isPassword: true),
           Divider(),
-          buildTextEdit('网站', '************'),
+          buildPasswordTextField(context,
+              title: '网站',
+              value: '',
+              hintText: '用户名',
+              controller: websiteController),
         ],
       ));
 }

@@ -1,10 +1,13 @@
 import 'package:app_mypass/core/api/apis.dart';
 import 'package:app_mypass/core/entitys/entitys.dart';
+import 'package:app_mypass/core/enums/viewstate.dart';
+import 'package:app_mypass/core/view_models/pass_model.dart';
 import 'package:app_mypass/ui/shared/shared.dart';
 import 'package:app_mypass/ui/widgets/home.dart';
 import 'package:app_mypass/ui/widgets/widgets.dart';
 import 'package:app_mypass/global.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -14,36 +17,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  PasswordsListResponseEntity _passList;
+  // PasswordsListResponseEntity _passList;
+
   void initState() {
     super.initState();
-
-    _loadAllData();
-    // _loadEventData();
-  }
-
-  // 读取所有数据
-  _loadAllData() async {
-    /// 2.登录
-
-    try {
-      /// api获取用户密码列表
-      _passList = await GqlPasswordAPI.getUserPasswordList(
-        context: context,
-        params: {"username": Global.profile.user.username},
-      );
-
-      /// 保存用户密码列表
-      // Global.saveProfile(userProfile);
-    } catch (e) {
-      print(e);
-      return toastInfo(msg: 'bug！');
-    }
-    print(_passList);
-
-    if (mounted) {
-      setState(() {});
-    }
+    Future.delayed(Duration(milliseconds: 1)).then((e) {
+      context.read<PassModel>().getPasswordList(context);
+    });
   }
 
   // 顶部导航
@@ -86,13 +66,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // context.read<PassModel>().getPasswordList(context);
     return Scaffold(
       appBar: _buildAppBar(),
-      body: _passList.appPasswords == null
+      body: context.watch<PassModel>().state == ViewState.Busy
           ? Container()
           : SingleChildScrollView(
               child: Column(
-                children: _passList.appPasswords.map((pass) {
+                children: context
+                    .watch<PassModel>()
+                    .passList
+                    .appPasswords
+                    .map((pass) {
                   return Column(
                     children: <Widget>[
                       SizedBox(height: 10),

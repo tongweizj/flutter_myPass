@@ -65,7 +65,7 @@ Widget thirdAppBar({
 /// 深色背景 AppBar
 Widget fouthAppBar({
   @required BuildContext context,
-  Widget title,
+  String title,
   Widget leading,
   List<Widget> actions,
 }) {
@@ -74,7 +74,10 @@ Widget fouthAppBar({
     elevation: 0,
     title: title != null
         ? Center(
-            child: title,
+            child: Text(
+              title,
+              style: TextStyle(fontSize: duSetFontSize(16)),
+            ),
           )
         : null,
     centerTitle: true,

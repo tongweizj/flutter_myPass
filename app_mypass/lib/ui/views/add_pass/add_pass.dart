@@ -1,11 +1,12 @@
+import 'package:app_mypass/core/api/apis.dart';
 import 'package:app_mypass/core/utils/utils.dart';
+import 'package:app_mypass/global.dart';
 import 'package:app_mypass/ui/shared/shared.dart';
 
 import 'package:app_mypass/ui/widgets/widgets.dart';
 import 'package:app_mypass/ui/views/add_pass/components/build_pass_button.dart';
 import 'package:app_mypass/ui/views/add_pass/components/pass_form.dart';
-import 'package:app_mypass/ui/views/add_pass/components/text_edit.dart';
-import 'package:app_mypass/ui/views/add_pass/components/webiste_form.dart';
+// import 'package:app_mypass/ui/views/add_pass/components/webiste_form.dart';
 import 'package:flutter/material.dart';
 
 class AddPassPage extends StatefulWidget {
@@ -18,14 +19,19 @@ class AddPassPage extends StatefulWidget {
 class _AddPassPageState extends State<AddPassPage> {
   //email的控制器
   final TextEditingController _emailController = TextEditingController();
+  //username的控制器
+  final TextEditingController _usernameController = TextEditingController();
+
+  //密码的控制器
+  final TextEditingController _passController = TextEditingController();
+  //网站的控制器
+  final TextEditingController _websiteController = TextEditingController();
+
   // 顶部导航
   Widget _buildAppBar() {
     return fouthAppBar(
         context: context,
-        title: Text(
-          '添加密码',
-          style: TextStyle(fontSize: duSetFontSize(16)),
-        ),
+        title: '添加密码',
         leading: MaterialButton(
           onPressed: () {
             Navigator.pop(context);
@@ -40,7 +46,24 @@ class _AddPassPageState extends State<AddPassPage> {
         ),
         actions: <Widget>[
           MaterialButton(
-            onPressed: () {
+            onPressed: () async {
+              print(_emailController.text);
+              print(_usernameController.text);
+              print(_passController.text);
+              print(_websiteController.text);
+
+              /// api 添加用户密码
+              // TODO: 要加 用户ID
+              Map<String, dynamic> params = {
+                "pass_email": _emailController.text,
+                "pass_username": _usernameController.text,
+                "pass_website": _websiteController.text,
+                "pass_password": _passController.text,
+                "usr": Global.profile.user.id
+              };
+
+              await GqlPasswordAPI.createUserPassword(
+                  context: context, params: params);
               Navigator.pushNamed(
                 context,
                 "/home",
@@ -59,13 +82,6 @@ class _AddPassPageState extends State<AddPassPage> {
 
   @override
   Widget build(BuildContext context) {
-    Map _passItem = {
-      "service": "icloud",
-      "name": "tongweizj",
-      "email": "tongweizj@gmail.com",
-      "password": "1234567",
-      "website": "http:icloud.com",
-    };
     return Scaffold(
       appBar: _buildAppBar(),
       body: SingleChildScrollView(
@@ -75,9 +91,11 @@ class _AddPassPageState extends State<AddPassPage> {
             SizedBox(
               height: duSetHeight(2),
             ),
-
-            buildPassForm(_passItem),
-
+            buildPassForm(context,
+                emailController: _emailController,
+                usernameController: _usernameController,
+                passController: _passController,
+                websiteController: _websiteController),
             buildPassButton(),
 
             /// 模块3：类别
