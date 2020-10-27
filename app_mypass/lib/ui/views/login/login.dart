@@ -5,6 +5,7 @@ import 'package:app_mypass/core/entitys/entitys.dart';
 import 'package:app_mypass/core/utils/utils.dart';
 import 'package:app_mypass/core/utils/validator.dart';
 import 'package:app_mypass/core/values/values.dart';
+import 'package:app_mypass/core/view_models/user_model.dart';
 import 'package:app_mypass/ui/shared/shared.dart';
 import 'package:app_mypass/ui/widgets/widgets.dart';
 import 'package:app_mypass/global.dart';
@@ -12,6 +13,7 @@ import 'package:app_mypass/ui/views/login/components/app_bar.dart';
 import 'package:app_mypass/ui/views/login/components/button.dart';
 import 'package:app_mypass/ui/views/login/components/input.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import 'package:luci_thermal_personal_app/core/api/apis.dart';
 
 // import 'package:luci_thermal_personal_app/global.dart';
@@ -42,25 +44,9 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     /// 2.登录
-    UserLoginRequestEntity variables = UserLoginRequestEntity(
-      identifier: _emailController.value.text,
-      password: _passController.value.text,
-      // password: duSHA256(_passController.value.text),
-    );
-    try {
-      UserLoginResponseEntity userProfile = await GqlUserAPI.login(
-        context: context,
-        variables: variables,
-      );
-      Global.saveProfile(userProfile);
-      Navigator.pushNamed(
-        context,
-        "/home",
-      );
-    } catch (e) {
-      print(e);
-      return toastInfo(msg: '请正确输入账号、密码！');
-    }
+    context.read<UserModel>().login(context,
+        usernameController: _emailController,
+        passwordController: _passController);
   }
 
   //////////////////////////////////
@@ -72,8 +58,15 @@ class _LoginPageState extends State<LoginPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // logoBig(),
-          // appSlogan(),
+          Container(
+            height: duSetWidth(80),
+            width: duSetWidth(80),
+            margin: EdgeInsets.symmetric(horizontal: duSetWidth(15)),
+            child: Image.asset(
+              "assets/images/launch-logo.png",
+              fit: BoxFit.fitHeight,
+            ),
+          ),
         ],
       ),
     );
@@ -115,10 +108,10 @@ class _LoginPageState extends State<LoginPage> {
           // 登录按钮
           btnFlatIconButtonWidget(
             onPressed: () => _handleLogin(),
-            width: 260,
-            height: 45,
+            width: 300,
+            height: 40,
             marginTop: 45,
-            gbColor: appBgSec,
+            gbColor: appColorFirst,
             iconFileName: "secure_login",
           ),
           // Spacer(),
@@ -136,9 +129,18 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           Positioned(
             child: Scaffold(
-                backgroundColor: appBgSec, //把scaffold的背景色改成透明
+                backgroundColor: appBgFivth, //把scaffold的背景色改成透明
                 appBar: secondAppBar(
                   context: context,
+                  leading: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: appiconThird,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
                 ),
                 body: SingleChildScrollView(
                     child: ConstrainedBox(

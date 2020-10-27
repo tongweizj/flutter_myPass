@@ -10,6 +10,8 @@ query UserPass($username: String!) {
       pass_email
       pass_password
       pass_website
+    web_letter_logo
+    web_logo
   }
 }
 ''';

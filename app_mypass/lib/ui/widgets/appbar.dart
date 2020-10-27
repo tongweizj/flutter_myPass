@@ -27,9 +27,10 @@ Widget secondAppBar({
   Widget title,
   Widget leading,
   List<Widget> actions,
+  Color backgroundColor: appBgFivth,
 }) {
   return AppBar(
-    backgroundColor: appBgSec,
+    backgroundColor: backgroundColor,
     elevation: 0,
     title: title != null
         ? Center(
@@ -49,7 +50,7 @@ Widget thirdAppBar({
   List<Widget> actions,
 }) {
   return AppBar(
-    backgroundColor: appBgFourth,
+    backgroundColor: appBgSeventh,
     elevation: 0,
     title: Row(
       mainAxisAlignment: MainAxisAlignment.start,

@@ -5,19 +5,21 @@ import 'package:flutter/material.dart';
 
 Widget buildPassForm(
   BuildContext context, {
-  AppPasswordEntity passItem,
+  AppPasswordModel passItem,
   TextEditingController usernameController,
   TextEditingController emailController,
   TextEditingController passController,
   TextEditingController websiteController,
+  TextEditingController webLetterLogoController,
 }) {
-  print(passItem);
+  // print(passItem);
   usernameController.text = passItem.passUsername;
   emailController.text = passItem.passEmail;
   passController.text = passItem.passPassword;
   websiteController.text = passItem.passWebsite;
+  webLetterLogoController.text = passItem.webLetterLogo;
   return Container(
-      height: 325,
+      height: duSetHeight(450),
       padding: EdgeInsets.only(
           left: duSetWidth(20),
           right: duSetWidth(0),
@@ -43,6 +45,12 @@ Widget buildPassForm(
               value: '',
               hintText: passItem.passWebsite,
               controller: websiteController),
+          Divider(),
+          buildPasswordTextField(context,
+              title: '密码Logo',
+              value: '',
+              hintText: passItem.webLetterLogo,
+              controller: webLetterLogoController),
           Divider(),
           buildPasswordTextField(context,
               title: '密码',

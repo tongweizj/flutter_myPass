@@ -28,14 +28,14 @@ class _LaunchPageState extends State<LaunchPage> {
             width: duSetWidth(338),
             margin: EdgeInsets.symmetric(horizontal: duSetWidth(15)),
             child: Image.asset(
-              "assets/images/launch.png",
-              fit: BoxFit.none,
+              "assets/images/launch-logo.png",
+              fit: BoxFit.fitHeight,
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: duSetHeight(115)),
             child: Text(
-              "使互联网更轻松的应用",
+              "小熊帮你保管小钥匙",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: appColorSecond,
@@ -48,7 +48,7 @@ class _LaunchPageState extends State<LaunchPage> {
           ),
           SizedBox(height: 10),
           Text(
-            "了解为什么我们拥有这么多五星级评论，切数量还在不断增长",
+            "这下好了，所有的蜂蜜都保管好了！",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: appTextSecond,
@@ -68,19 +68,20 @@ class _LaunchPageState extends State<LaunchPage> {
     return Container(
       width: duSetWidth(295),
       // height: 204,
-      margin: EdgeInsets.only(top: duSetHeight(9)),
+      margin: EdgeInsets.only(bottom: duSetHeight(20)),
       child: Column(
         children: [
-          btnFlatButtonWidget(
-            onPressed: () {
-              Navigator.pushNamed(
-                context,
-                "/home",
-              );
-            },
-            gbColor: appColorFirst,
-            title: "开始使用",
-          ),
+          // TODO：注册页面
+          // btnFlatButtonWidget(
+          //   onPressed: () {
+          //     Navigator.pushNamed(
+          //       context,
+          //       "/home",
+          //     );
+          //   },
+          //   gbColor: appColorFirst,
+          //   title: "开始使用",
+          // ),
           SizedBox(height: 10),
           btnFlatButtonWidget(
             onPressed: () {
@@ -104,12 +105,15 @@ class _LaunchPageState extends State<LaunchPage> {
     ScreenUtil.init(context,
         width: 375, height: 812 - 44 - 34, allowFontScaling: true);
     return Scaffold(
-      body: Center(
+      body: Container(
+        alignment: Alignment.center,
+        color: appBgFivth,
         child: Column(
           children: <Widget>[
             _buildLogo(),
             Spacer(),
             _buildbuttonList(),
+            SizedBox(height: duSetHeight(40)),
           ],
         ),
       ),

@@ -14,11 +14,11 @@ class PassDetailPage extends StatefulWidget {
 
 class _PassDetailPageState extends State<PassDetailPage> {
   // 顶部导航
-  Widget _buildAppBar(AppPasswordEntity passItem) {
+  Widget _buildAppBar(AppPasswordModel passItem) {
     return thirdAppBar(
         context: context,
         title: Text(
-          "密码",
+          "",
           style: TextStyle(
             color: appColorThird,
             fontFamily: 'Montserrat',
@@ -56,15 +56,15 @@ class _PassDetailPageState extends State<PassDetailPage> {
 
   Widget _buildPageHeader(String title, String subtitle) {
     return Container(
-        color: appBgFourth,
+        color: appBgSeventh,
         width: duSetWidth(375),
-        height: duSetHeight(110),
+        height: duSetHeight(115),
         child: Column(children: <Widget>[
           Container(
-              margin: EdgeInsets.only(
-                  top: duSetHeight(20), bottom: duSetHeight(20)),
-              width: duSetWidth(80),
-              height: duSetHeight(40),
+              margin:
+                  EdgeInsets.only(top: duSetHeight(0), bottom: duSetHeight(20)),
+              width: duSetWidth(48),
+              height: duSetWidth(48),
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   color: appBgThird,
@@ -74,10 +74,10 @@ class _PassDetailPageState extends State<PassDetailPage> {
               child: Text(
                 title,
                 style: TextStyle(
-                  color: appColorThird,
+                  color: appBgSeventh,
                   fontFamily: "Montserrat",
                   fontWeight: FontWeight.w600,
-                  fontSize: duSetFontSize(14),
+                  fontSize: duSetFontSize(32),
                   height: 1,
                 ),
               )),
@@ -94,107 +94,122 @@ class _PassDetailPageState extends State<PassDetailPage> {
         ]));
   }
 
-  Widget _buildBlockPassInfo(AppPasswordEntity passItem) {
-    return ListView(
-      shrinkWrap: true,
-      padding: EdgeInsets.only(
-          left: duSetWidth(20), right: duSetWidth(0), bottom: duSetHeight(0)),
-      children: <Widget>[
-        ListTile(
-          title: Text(
-            '电子邮件',
-            style: TextStyle(
-              fontSize: duSetFontSize(14),
-              color: appTextFurth,
-              height: duSetHeight(0),
-            ),
-          ),
-          subtitle: Text(
-            passItem.passEmail,
-            style: TextStyle(
-                fontSize: duSetFontSize(16),
-                color: appTextFifth,
-                height: duSetHeight(2)),
-          ),
-          trailing: FlatButton(
-            textColor: appTextThird,
-            onPressed: () {},
-            child: Text(
-              "复制",
-              textAlign: TextAlign.right,
-              style: TextStyle(fontSize: duSetFontSize(14)),
-            ),
-            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
-          ),
-          contentPadding: EdgeInsets.all(0.0),
-          dense: true,
-        ),
-        Divider(),
-        ListTile(
-          title: Text(
-            '密码',
-            style: TextStyle(
-              fontSize: duSetFontSize(14),
-              color: appTextFurth,
-              height: duSetHeight(0),
-            ),
-          ),
-          subtitle: Text(
-            '*********',
-            // passItem["password"],
-            style: TextStyle(
-                fontSize: duSetFontSize(16),
-                color: appTextFifth,
-                height: duSetHeight(2)),
-          ),
-          trailing: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-            Icon(Icons.visibility),
-            FlatButton(
-              textColor: appTextThird,
-              onPressed: () {},
-              child: Text(
-                "复制",
-                textAlign: TextAlign.right,
-                style: TextStyle(fontSize: duSetFontSize(14)),
+  Widget _buildBlockPassInfo(AppPasswordModel passItem) {
+    return Container(
+        color: appBgPrimary,
+        margin: EdgeInsets.fromLTRB(
+            duSetWidth(0), duSetHeight(15), duSetWidth(0), duSetWidth(0)),
+        padding: EdgeInsets.fromLTRB(
+            duSetWidth(20), duSetHeight(15), duSetWidth(0), duSetWidth(0)),
+        child: ListView(
+          shrinkWrap: true,
+          // padding: EdgeInsets.only(
+          //     left: duSetWidth(20),
+          //     right: duSetWidth(0),
+          //     top: duSetHeight(0),
+          //     bottom: duSetHeight(10)),
+          children: <Widget>[
+            ListTile(
+              contentPadding: EdgeInsets.fromLTRB(
+                  duSetWidth(0), duSetHeight(0), duSetWidth(0), duSetHeight(5)),
+              title: Text(
+                '电子邮件',
+                style: TextStyle(
+                  fontSize: duSetFontSize(14),
+                  color: appTextFurth,
+                  height: duSetHeight(0),
+                ),
               ),
-              shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+              subtitle: Text(
+                passItem.passEmail,
+                style: TextStyle(
+                    fontSize: duSetFontSize(16),
+                    color: appTextFifth,
+                    height: duSetHeight(2)),
+              ),
+              trailing: FlatButton(
+                textColor: appTextThird,
+                onPressed: () {},
+                child: Text(
+                  "复制",
+                  textAlign: TextAlign.right,
+                  style: TextStyle(fontSize: duSetFontSize(14)),
+                ),
+                shape:
+                    CircleBorder(side: BorderSide(color: Colors.transparent)),
+              ),
+              dense: true,
             ),
-          ]),
-          contentPadding: EdgeInsets.all(0.0),
-          dense: true,
-        ),
-        Divider(),
-        ListTile(
-          title: Text(
-            '网站',
-            style: TextStyle(
-              fontSize: duSetFontSize(14),
-              color: appTextFurth,
-              height: duSetHeight(0),
+            Divider(),
+            ListTile(
+              contentPadding: EdgeInsets.fromLTRB(duSetWidth(0),
+                  duSetHeight(10), duSetWidth(0), duSetHeight(0)),
+              title: Text(
+                '密码',
+                style: TextStyle(
+                  fontSize: duSetFontSize(14),
+                  color: appTextFurth,
+                  height: duSetHeight(0),
+                ),
+              ),
+              subtitle: Text(
+                '*********',
+                // passItem["password"],
+                style: TextStyle(
+                    fontSize: duSetFontSize(16),
+                    color: appTextFifth,
+                    height: duSetHeight(2)),
+              ),
+              trailing: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                Icon(Icons.visibility),
+                FlatButton(
+                  textColor: appTextThird,
+                  onPressed: () {},
+                  child: Text(
+                    "复制",
+                    textAlign: TextAlign.right,
+                    style: TextStyle(fontSize: duSetFontSize(14)),
+                  ),
+                  shape:
+                      CircleBorder(side: BorderSide(color: Colors.transparent)),
+                ),
+              ]),
+              dense: true,
             ),
-          ),
-          subtitle: Text(
-            passItem.passWebsite,
-            style: TextStyle(
-                fontSize: duSetFontSize(16),
-                color: appTextFifth,
-                height: duSetHeight(2)),
-          ),
-          trailing: FlatButton(
-            textColor: appTextThird,
-            onPressed: () {},
-            child: Text(
-              "打开",
-              textAlign: TextAlign.right,
-              style: TextStyle(fontSize: duSetFontSize(14)),
+            Divider(),
+            ListTile(
+              contentPadding: EdgeInsets.fromLTRB(duSetWidth(0),
+                  duSetHeight(15), duSetWidth(0), duSetHeight(0)),
+              title: Text(
+                '网站',
+                style: TextStyle(
+                  fontSize: duSetFontSize(14),
+                  color: appTextFurth,
+                  height: duSetHeight(0),
+                ),
+              ),
+              subtitle: Text(
+                passItem.passWebsite,
+                style: TextStyle(
+                    fontSize: duSetFontSize(16),
+                    color: appTextFifth,
+                    height: duSetHeight(2)),
+              ),
+              trailing: FlatButton(
+                textColor: appTextThird,
+                onPressed: () {},
+                child: Text(
+                  "打开",
+                  textAlign: TextAlign.right,
+                  style: TextStyle(fontSize: duSetFontSize(14)),
+                ),
+                shape:
+                    CircleBorder(side: BorderSide(color: Colors.transparent)),
+              ),
+              dense: true,
             ),
-            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
-          ),
-          contentPadding: EdgeInsets.all(0.0),
-          dense: true,
-        ),
-      ],
-    );
+          ],
+        ));
   }
 
   Widget _buildBlockHeader(String header) {
@@ -293,8 +308,7 @@ class _PassDetailPageState extends State<PassDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppPasswordEntity passItem =
-        ModalRoute.of(context).settings.arguments;
+    final AppPasswordModel passItem = ModalRoute.of(context).settings.arguments;
     // Map _passItem = {
     //   "service": "icloud",
     //   "name": "tongweizj",
@@ -305,12 +319,12 @@ class _PassDetailPageState extends State<PassDetailPage> {
     return Scaffold(
       appBar: _buildAppBar(passItem),
       body: Container(
-        color: appBgPrimary,
+        color: appBgFifth,
         child: Column(
           children: <Widget>[
             /// 模块1： 头部
             _buildPageHeader(
-              passItem.passWebsite,
+              passItem.webLetterLogo,
               passItem.passUsername,
             ),
 
@@ -321,12 +335,12 @@ class _PassDetailPageState extends State<PassDetailPage> {
             _buildBlockPassInfo(passItem),
 
             /// 密码安全程度
-            _buildBlockHeader('密码安全程度'),
-            _buildBlockPassLevel(),
+            // _buildBlockHeader('密码安全程度'),
+            // _buildBlockPassLevel(),
 
             /// 密码共享
-            _buildBlockHeader('联系人'),
-            _buildBlockConnect(),
+            // _buildBlockHeader('联系人'),
+            // _buildBlockConnect(),
             Divider(
               height: duSetHeight(3),
             ),

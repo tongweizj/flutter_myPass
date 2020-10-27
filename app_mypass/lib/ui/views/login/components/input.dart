@@ -48,23 +48,24 @@ Widget inputEmailEdit({
   double marginTop = 15,
 }) {
   return Container(
-    height: duSetHeight(50),
+    height: duSetHeight(33),
     margin: EdgeInsets.only(top: duSetHeight(marginTop)),
     decoration: BoxDecoration(
-        color: appColorThird,
-        borderRadius: Radii.k4pxRadius,
-        border: Border.all(width: 1, color: appColorFirst)),
+      color: appColorThird,
+      borderRadius: Radii.k4pxRadius,
+      // border: Border.all(width: 1, color: appColorFirst)
+    ),
     child: TextField(
       controller: controller,
       keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(color: appColorFirst),
-        contentPadding: EdgeInsets.fromLTRB(18, 0, 0, 1),
-        border: InputBorder.none,
+        hintStyle: TextStyle(color: appTextFurth, fontSize: duSetFontSize(16)),
+        contentPadding: EdgeInsets.fromLTRB(12, 0, 0, 5),
+        border: OutlineInputBorder(),
       ),
       style: TextStyle(
-        color: appColorFirst,
+        color: appTextFurth,
         fontFamily: "SFProText",
         fontWeight: FontWeight.w400,
         fontSize: duSetFontSize(16),
@@ -102,7 +103,7 @@ class _InputPasswordState extends State<InputPassword> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: duSetHeight(50),
+      height: duSetHeight(33),
       margin: EdgeInsets.only(top: duSetHeight(widget.marginTop)),
       decoration: BoxDecoration(
           color: appColorThird,
@@ -114,8 +115,8 @@ class _InputPasswordState extends State<InputPassword> {
         keyboardType: widget.keyboardType,
         decoration: InputDecoration(
           hintText: widget.hintText,
-          hintStyle: TextStyle(color: appTextThird),
-          contentPadding: EdgeInsets.fromLTRB(18, 10, 0, 2),
+          hintStyle: TextStyle(color: appTextFurth),
+          contentPadding: EdgeInsets.fromLTRB(12, 0, 0, 5),
           border: InputBorder.none,
           // suffixIcon: GestureDetector(
           //   onTap: () {

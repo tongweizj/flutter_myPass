@@ -18,7 +18,7 @@ Widget buildDivider() {
 
 Widget buildPassItem(
   BuildContext context,
-  AppPasswordEntity item,
+  AppPasswordModel item,
 ) {
   return Container(
       height: duSetHeight(40),
@@ -49,23 +49,23 @@ Widget buildPassItem(
               child: Container(
                   margin: EdgeInsets.only(
                       top: duSetHeight(0), bottom: duSetHeight(0)),
-                  width: duSetWidth(48),
-                  height: duSetHeight(42),
+                  width: duSetWidth(42),
+                  height: duSetWidth(42),
                   // height: duSetHeight(67),
 
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: appBgThird,
+                      color: appColorFirst,
                       borderRadius: BorderRadius.all(
                         Radius.circular(4.0),
                       )),
                   child: Text(
-                    item.passWebsite,
+                    item.webLetterLogo,
                     style: TextStyle(
                       color: appColorThird,
                       fontFamily: "Montserrat",
                       fontWeight: FontWeight.w600,
-                      fontSize: duSetFontSize(14),
+                      fontSize: duSetFontSize(24),
                       height: 1,
                     ),
                   )),
@@ -81,7 +81,7 @@ Widget buildPassItem(
                   margin: EdgeInsets.only(
                       top: duSetHeight(0), bottom: duSetHeight(0)),
                   width: duSetWidth(250),
-                  height: duSetHeight(40),
+                  height: duSetHeight(60),
                   color: appColorThird,
                   alignment: Alignment.centerLeft,
                   child: Column(
@@ -93,11 +93,11 @@ Widget buildPassItem(
                             color: appColorSecond,
                             fontFamily: "Montserrat",
                             fontWeight: FontWeight.w600,
-                            fontSize: duSetFontSize(14),
+                            fontSize: duSetFontSize(12),
                             height: 1,
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: duSetHeight(2)),
                         Text(
                           item.passEmail,
                           style: TextStyle(

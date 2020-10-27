@@ -1,4 +1,5 @@
 import 'package:app_mypass/core/view_models/pass_model.dart';
+import 'package:app_mypass/core/view_models/user_model.dart';
 import 'package:app_mypass/global.dart';
 import 'package:app_mypass/ui/routes.dart';
 import 'package:app_mypass/ui/views/index/index.dart';
@@ -13,6 +14,7 @@ void main() => Global.init().then((e) => runApp(
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => PassModel()),
+          ChangeNotifierProvider(create: (_) => UserModel()),
         ],
         child: MyApp(),
       ),

@@ -70,6 +70,7 @@ class GraphqlClientUtil {
     QueryOptions options = QueryOptions(
       documentNode: gql(schema),
       variables: variables,
+      fetchPolicy: FetchPolicy.cacheAndNetwork,
     );
 
     QueryResult result = await client().query(options);

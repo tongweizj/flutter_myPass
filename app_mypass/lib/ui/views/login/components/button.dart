@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 Widget btnFlatIconButtonWidget({
   @required VoidCallback onPressed,
   double width = 140,
-  double height = 54,
+  double height = 50,
   Color gbColor = appBgSec,
   String iconFileName,
   double marginTop = 15,
@@ -20,9 +20,19 @@ Widget btnFlatIconButtonWidget({
         onPressed: onPressed,
         color: gbColor,
         shape: RoundedRectangleBorder(
-          borderRadius: Radii.k27pxRadius,
+          borderRadius: Radii.k4pxRadius,
         ),
-        child: Text("登陆")
+        child: Text(
+          "登 陆",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: appColorThird,
+            fontFamily: "Montserrat",
+            fontWeight: FontWeight.w400,
+            fontSize: duSetFontSize(18),
+            height: 1,
+          ),
+        )
         // child: Image.asset(
         //   "assets/images/icons_$iconFileName.png",
         // ),

@@ -2,13 +2,15 @@ import 'package:app_mypass/core/entitys/entitys.dart';
 import 'package:app_mypass/core/graphql/graphql.dart';
 import 'package:app_mypass/core/graphql/password.dart';
 import 'package:app_mypass/core/utils/utils.dart';
+import 'package:app_mypass/core/view_models/pass_model.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:provider/provider.dart';
 
 /// 用户
 class GqlPasswordAPI {
   /// 拉用户的密码列表
-  static Future<PasswordsListResponseEntity> getUserPasswordList({
+  static Future<PasswordsListResponseModel> getUserPasswordList({
     @required BuildContext context,
     Map<String, dynamic> params,
   }) async {
@@ -16,7 +18,7 @@ class GqlPasswordAPI {
         context: context, schema: GQL_Passwords_List, variables: params);
     print("response.data.toString()");
     print(response.data.data["appPasswords"].toString());
-    return PasswordsListResponseEntity.fromJson(response.data.data);
+    return PasswordsListResponseModel.fromJson(response.data.data);
   }
 
   /// 创建新密码
@@ -27,6 +29,10 @@ class GqlPasswordAPI {
     print("response.data.toString()");
     print(response.data.data["appPasswords"].toString());
     // PasswordsListResponseEntity.fromJson(response.data.data)
+    // Future.delayed(Duration(milliseconds: 1)).then((e) {
+    //   context.read<PassModel>().getPasswordList(context);
+    // });
+
     return true;
   }
 

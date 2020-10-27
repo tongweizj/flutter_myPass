@@ -19,17 +19,17 @@ class PasswordsListRequestEntity {
 
 ///////////////////////////////
 
-class PasswordsListResponseEntity {
-  PasswordsListResponseEntity({
+class PasswordsListResponseModel {
+  PasswordsListResponseModel({
     this.appPasswords,
   });
 
-  List<AppPasswordEntity> appPasswords;
+  List<AppPasswordModel> appPasswords;
 
-  factory PasswordsListResponseEntity.fromJson(Map<String, dynamic> json) =>
-      PasswordsListResponseEntity(
-        appPasswords: List<AppPasswordEntity>.from(
-            json["appPasswords"].map((x) => AppPasswordEntity.fromJson(x))),
+  factory PasswordsListResponseModel.fromJson(Map<String, dynamic> json) =>
+      PasswordsListResponseModel(
+        appPasswords: List<AppPasswordModel>.from(
+            json["appPasswords"].map((x) => AppPasswordModel.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -37,29 +37,34 @@ class PasswordsListResponseEntity {
       };
 }
 
-///////////////////////////////
-class AppPasswordEntity {
-  AppPasswordEntity({
+class AppPasswordModel {
+  AppPasswordModel({
     this.id,
     this.passUsername,
     this.passEmail,
     this.passPassword,
     this.passWebsite,
+    this.webLetterLogo,
+    this.webLogo,
   });
 
   String id;
   String passUsername;
   String passEmail;
-  String passPassword;
+  dynamic passPassword;
   String passWebsite;
+  dynamic webLetterLogo;
+  dynamic webLogo;
 
-  factory AppPasswordEntity.fromJson(Map<String, dynamic> json) =>
-      AppPasswordEntity(
+  factory AppPasswordModel.fromJson(Map<String, dynamic> json) =>
+      AppPasswordModel(
         id: json["id"],
         passUsername: json["pass_username"],
         passEmail: json["pass_email"],
         passPassword: json["pass_password"],
         passWebsite: json["pass_website"],
+        webLetterLogo: json["web_letter_logo"],
+        webLogo: json["web_logo"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -68,5 +73,7 @@ class AppPasswordEntity {
         "pass_email": passEmail,
         "pass_password": passPassword,
         "pass_website": passWebsite,
+        "web_letter_logo": webLetterLogo,
+        "web_logo": webLogo,
       };
 }

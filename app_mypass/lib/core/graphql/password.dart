@@ -11,6 +11,7 @@ mutation addAppPassword(
   $pass_username: String,
   $pass_email: String,
   $pass_website: String,
+  $web_letter_logo: String,
   $pass_password: String,
   $usr:ID){
   createAppPassword(
@@ -19,6 +20,7 @@ mutation addAppPassword(
         pass_email:$pass_email,
     		pass_username:$pass_username,
     		pass_website:$pass_website,
+        web_letter_logo:$web_letter_logo
     		pass_password:$pass_password,
         user:$usr
       }
@@ -46,6 +48,7 @@ mutation updateAppPassword(
   $pass_username: String,
   $pass_email: String,
   $pass_website: String,
+  $web_letter_logo: String,
   $pass_password: String,
   $pass_id: ID!,
   $usr:ID){
@@ -57,6 +60,7 @@ mutation updateAppPassword(
     		pass_username:$pass_username,
     		pass_website:$pass_website,
     		pass_password:$pass_password,
+        web_letter_logo:$web_letter_logo
         user:$usr
       }
     }

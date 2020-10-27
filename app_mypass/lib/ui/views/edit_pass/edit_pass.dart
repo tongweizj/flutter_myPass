@@ -27,9 +27,10 @@ class _EditPassPageState extends State<EditPassPage> {
   final TextEditingController _passController = TextEditingController();
   //网站的控制器
   final TextEditingController _websiteController = TextEditingController();
-
+  //网站字母logo的控制器
+  final TextEditingController _webLetterLogo = TextEditingController();
   // 顶部导航
-  Widget _buildAppBar(AppPasswordEntity passItem) {
+  Widget _buildAppBar(AppPasswordModel passItem) {
     return fouthAppBar(
         context: context,
         title: '编辑',
@@ -53,6 +54,7 @@ class _EditPassPageState extends State<EditPassPage> {
                 "pass_username": _usernameController.text,
                 "pass_website": _websiteController.text,
                 "pass_password": _passController.text,
+                "web_letter_logo": _webLetterLogo.text,
                 "pass_id": passItem.id,
                 "usr": Global.profile.user.id
               };
@@ -75,7 +77,7 @@ class _EditPassPageState extends State<EditPassPage> {
         ]);
   }
 
-  Widget _buildBlockConnect(AppPasswordEntity passItem) {
+  Widget _buildBlockConnect(AppPasswordModel passItem) {
     return Container(
       color: appBgPrimary,
       height: duSetHeight(40),
@@ -116,16 +118,8 @@ class _EditPassPageState extends State<EditPassPage> {
 
   @override
   Widget build(BuildContext context) {
-    final AppPasswordEntity passItem =
-        ModalRoute.of(context).settings.arguments;
-    print(passItem);
-    Map _passItem = {
-      "service": "icloud",
-      "name": "tongweizj",
-      "email": "tongweizj@gmail.com",
-      "password": "1234567",
-      "website": "http:icloud.com",
-    };
+    final AppPasswordModel passItem = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: _buildAppBar(passItem),
       body: SingleChildScrollView(
@@ -141,7 +135,8 @@ class _EditPassPageState extends State<EditPassPage> {
                 emailController: _emailController,
                 usernameController: _usernameController,
                 passController: _passController,
-                websiteController: _websiteController),
+                websiteController: _websiteController,
+                webLetterLogoController: _webLetterLogo),
             Divider(),
             SizedBox(height: duSetHeight(40)),
             Divider(),

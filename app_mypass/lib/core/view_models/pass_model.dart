@@ -15,7 +15,7 @@ class PassModel with ChangeNotifier {
   }
 
   // 新密码
-  AppPasswordEntity _newPass;
+  AppPasswordModel _newPass;
   get newPass => _newPass;
 
   // 初始化
@@ -39,7 +39,7 @@ class PassModel with ChangeNotifier {
   }
 
   // 密码列表
-  PasswordsListResponseEntity passList;
+  PasswordsListResponseModel passList;
   // PasswordsListResponseEntity get passList => _passList;
 
   Future getPasswordList(BuildContext context) async {
@@ -50,7 +50,7 @@ class PassModel with ChangeNotifier {
       context: context,
       params: {"username": Global.profile.user.username},
     );
-    print(passList);
+    // print(passList);
     // notifyListeners();
     changeState(ViewState.Idle);
   }

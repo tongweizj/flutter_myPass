@@ -1,8 +1,9 @@
 import 'package:app_mypass/core/api/apis.dart';
 import 'package:app_mypass/core/utils/utils.dart';
+import 'package:app_mypass/core/view_models/pass_model.dart';
 import 'package:app_mypass/global.dart';
 import 'package:app_mypass/ui/shared/shared.dart';
-
+import 'package:provider/provider.dart';
 import 'package:app_mypass/ui/widgets/widgets.dart';
 import 'package:app_mypass/ui/views/add_pass/components/build_pass_button.dart';
 import 'package:app_mypass/ui/views/add_pass/components/pass_form.dart';
@@ -26,7 +27,9 @@ class _AddPassPageState extends State<AddPassPage> {
   final TextEditingController _passController = TextEditingController();
   //网站的控制器
   final TextEditingController _websiteController = TextEditingController();
-
+  //网站字母logo的控制器
+  final TextEditingController _webLetterLogoController =
+      TextEditingController();
   // 顶部导航
   Widget _buildAppBar() {
     return fouthAppBar(
@@ -47,23 +50,21 @@ class _AddPassPageState extends State<AddPassPage> {
         actions: <Widget>[
           MaterialButton(
             onPressed: () async {
-              print(_emailController.text);
-              print(_usernameController.text);
-              print(_passController.text);
-              print(_websiteController.text);
-
               /// api 添加用户密码
-              // TODO: 要加 用户ID
               Map<String, dynamic> params = {
                 "pass_email": _emailController.text,
                 "pass_username": _usernameController.text,
                 "pass_website": _websiteController.text,
+                "web_letter_logo": _webLetterLogoController.text,
                 "pass_password": _passController.text,
                 "usr": Global.profile.user.id
               };
 
               await GqlPasswordAPI.createUserPassword(
                   context: context, params: params);
+              // Future.delayed(Duration(milliseconds: 1)).then((e) {
+              //   context.read<PassModel>().getPasswordList(context);
+              // });
               Navigator.pushNamed(
                 context,
                 "/home",
@@ -95,7 +96,8 @@ class _AddPassPageState extends State<AddPassPage> {
                 emailController: _emailController,
                 usernameController: _usernameController,
                 passController: _passController,
-                websiteController: _websiteController),
+                websiteController: _websiteController,
+                webLetterLogoController: _webLetterLogoController),
             buildPassButton(),
 
             /// 模块3：类别

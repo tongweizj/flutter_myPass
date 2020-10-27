@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 /// 主色
-const appColorFirst = Color(0xFF1D6475);
+const appColorFirst = Color(0xFF50BAFF);
 const appColorSecond = Color(0xFF171717);
 const appColorThird = Color(0xFFFFFFFF);
 
@@ -9,12 +9,12 @@ const appColorThird = Color(0xFFFFFFFF);
 const appBgPrimary = Color(0xFFFFFFFF);
 
 /// 深蓝色背景
-const appBgFourth = Color(0xFF0E353D);
-
-/// 浅蓝色背景
-const appBgSec = Color(0xFFD9E6E9);
+const appBgFourth = Color(0xFF303A48);
+const appBgSec = Color(0xFFD9E6E9); // 浅蓝色背景
 const appBgThird = Color(0xFFE2EBED);
-const appBgFifth = Color(0xFFF1F1F1);
+const appBgFifth = Color(0xFFF1F1F1); // 浅灰色背景
+const appBgFivth = Color(0xFFF6F6F6);
+const appBgSeventh = Color(0xFFD8A403);
 
 /// 文本
 const appTextSecond = Color(0xFF6C6561);
@@ -26,6 +26,7 @@ const appTextSixth = Color(0xFFF4243D);
 /// icon
 const appiconFirst = Color(0xFF0A0A0A);
 const appiconSecond = Color(0xFF184148);
+const appiconThird = Color(0xFF50BAFF);
 
 /// 1、First
 /// 2、 Second

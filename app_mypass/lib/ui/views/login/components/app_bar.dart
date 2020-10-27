@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 Widget transparentAppBar({
   @required BuildContext context,
   List<Widget> actions,
-  leadingIconColr = appBgSec,
+  leadingIconColr = appiconFirst,
 }) {
   return AppBar(
     backgroundColor: Colors.transparent,

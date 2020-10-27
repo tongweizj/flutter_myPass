@@ -3,6 +3,7 @@ import 'package:app_mypass/core/entitys/entitys.dart';
 import 'package:app_mypass/core/enums/viewstate.dart';
 import 'package:app_mypass/core/view_models/pass_model.dart';
 import 'package:app_mypass/ui/shared/shared.dart';
+import 'package:app_mypass/ui/widgets/drawer.dart';
 import 'package:app_mypass/ui/widgets/home.dart';
 import 'package:app_mypass/ui/widgets/widgets.dart';
 import 'package:app_mypass/global.dart';
@@ -30,8 +31,9 @@ class _HomePageState extends State<HomePage> {
   Widget _buildAppBar() {
     return secondAppBar(
         context: context,
+        backgroundColor: appBgPrimary,
         title: Text(
-          "主页",
+          "",
           style: TextStyle(
             color: appTextThird,
             fontFamily: 'Montserrat',
@@ -39,19 +41,25 @@ class _HomePageState extends State<HomePage> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Icons.notifications_none,
-            color: appiconSecond,
-          ),
-          iconSize: 28,
-          onPressed: () {},
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.menu,
+                color: appColorFirst,
+              ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
         ),
         actions: <Widget>[
           IconButton(
             icon: Icon(
               Icons.add,
-              color: appiconFirst,
+              color: appColorFirst,
             ),
             iconSize: 28,
             onPressed: () {
@@ -69,6 +77,8 @@ class _HomePageState extends State<HomePage> {
     // context.read<PassModel>().getPasswordList(context);
     return Scaffold(
       appBar: _buildAppBar(),
+      backgroundColor: appColorThird,
+      drawer: AppDrawer(),
       body: context.watch<PassModel>().state == ViewState.Busy
           ? Container()
           : SingleChildScrollView(
