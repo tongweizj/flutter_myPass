@@ -31,6 +31,7 @@ Widget secondAppBar({
 }) {
   return AppBar(
     backgroundColor: backgroundColor,
+    brightness: Brightness.light,
     elevation: 0,
     title: title != null
         ? Center(
