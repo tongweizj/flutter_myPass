@@ -1,4 +1,4 @@
-package com.example.mypass
+package com.yoese.mypass
 
 import io.flutter.embedding.android.FlutterActivity
 
