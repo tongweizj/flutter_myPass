@@ -1,9 +1,7 @@
 import 'dart:ui';
-
-import 'package:mypass/core/utils/utils.dart';
-import 'package:mypass/ui/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mypass/ui/shared/shared.dart';
 
 Future<bool> toastInfo({
   @required String msg,

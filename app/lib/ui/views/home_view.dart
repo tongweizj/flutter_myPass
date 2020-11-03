@@ -1,14 +1,9 @@
-import 'package:mypass/core/api/apis.dart';
-import 'package:mypass/core/entitys/entitys.dart';
-import 'package:mypass/core/enums/viewstate.dart';
-import 'package:mypass/core/view_models/pass_model.dart';
-import 'package:mypass/ui/shared/shared.dart';
-import 'package:mypass/ui/widgets/drawer.dart';
-import 'package:mypass/ui/widgets/home.dart';
-import 'package:mypass/ui/widgets/widgets.dart';
-import 'package:mypass/global.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:mypass/ui/shared/shared.dart';
+import 'package:mypass/ui/widgets/widgets.dart';
+import 'package:mypass/core/view_models/pass_model.dart';
+import 'package:mypass/core/values/enums.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -25,22 +20,21 @@ class _HomePageState extends State<HomePage> {
     Future.delayed(Duration(milliseconds: 1)).then((e) {
       context.read<PassModel>().getPasswordList(context);
     });
+    // print('admin');
+    // print(CipherUtil.encryptUserLoginPassword('tw273634'));
+    // var xxxxStr = CipherUtil.encryptPassword(
+    //     password: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit');
+    // print(xxxxStr);
+    // CipherUtil.decryptPassword(password: xxxxStr);
   }
 
   // 顶部导航
   Widget _buildAppBar() {
-    return secondAppBar(
+    return passAppBar(
         context: context,
         backgroundColor: appBgPrimary,
-        title: Text(
-          "",
-          style: TextStyle(
-            color: appTextThird,
-            fontFamily: 'Montserrat',
-            fontSize: duSetFontSize(14.0),
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+        brightness: Brightness.light,
+        title: "",
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -91,8 +85,8 @@ class _HomePageState extends State<HomePage> {
                   return Column(
                     children: <Widget>[
                       SizedBox(height: 10),
-                      buildPassItem(context, pass),
-                      buildDivider()
+                      buildPassItemBlock(context, pass),
+                      buildDivideritem()
                     ],
                   );
                 }).toList(),

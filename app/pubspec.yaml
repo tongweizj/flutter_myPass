@@ -42,7 +42,12 @@ dependencies:
   
   # 状态管理
   provider: ^4.3.1
-
+  # 调用本地浏览器
+  url_launcher: ^5.7.8
+  # 加解密
+  # encrypt: ^4.1.0
+  crypto: ^2.1.5
+  steel_crypt: ^2.2.2+1
 dev_dependencies:
   flutter_test:
     sdk: flutter

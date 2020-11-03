@@ -1,14 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:mypass/global.dart';
 import 'package:mypass/core/api/apis.dart';
 import 'package:mypass/core/entitys/entitys.dart';
-import 'package:mypass/core/utils/utils.dart';
-import 'package:mypass/core/values/values.dart';
-import 'package:mypass/global.dart';
+import 'package:mypass/core/utils/cipher.dart';
 import 'package:mypass/ui/shared/shared.dart';
 import 'package:mypass/ui/widgets/widgets.dart';
 import 'package:mypass/ui/views/edit_pass/components/pass_form.dart';
-// import 'package:mypass/ui/views/edit_pass/components/text_edit.dart';
-// import 'package:mypass/ui/views/edit_pass/components/webiste_form.dart';
-import 'package:flutter/material.dart';
 
 class EditPassPage extends StatefulWidget {
   EditPassPage({Key key}) : super(key: key);
@@ -31,9 +28,10 @@ class _EditPassPageState extends State<EditPassPage> {
   final TextEditingController _webLetterLogo = TextEditingController();
   // 顶部导航
   Widget _buildAppBar(AppPasswordModel passItem) {
-    return fouthAppBar(
+    return passAppBar(
         context: context,
         title: '编辑',
+        backgroundColor: appBgFourth,
         leading: MaterialButton(
           onPressed: () {
             Navigator.pop(context);
@@ -53,7 +51,8 @@ class _EditPassPageState extends State<EditPassPage> {
                 "pass_email": _emailController.text,
                 "pass_username": _usernameController.text,
                 "pass_website": _websiteController.text,
-                "pass_password": _passController.text,
+                "pass_password":
+                    CipherUtil.encryptPassword(password: _passController.text),
                 "web_letter_logo": _webLetterLogo.text,
                 "pass_id": passItem.id,
                 "usr": Global.profile.user.id

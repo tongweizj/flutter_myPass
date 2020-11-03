@@ -1,6 +1,7 @@
 import 'package:mypass/core/api/apis.dart';
 import 'package:mypass/core/entitys/entitys.dart';
-import 'package:mypass/core/enums/viewstate.dart';
+import 'package:mypass/core/utils/cipher.dart';
+import 'package:mypass/core/values/enums.dart';
 import 'package:mypass/core/utils/utils.dart';
 import 'package:mypass/core/values/values.dart';
 import 'package:flutter/widgets.dart';
@@ -25,8 +26,8 @@ class UserModel with ChangeNotifier {
     /// api获取用户密码列表
     UserLoginRequestEntity variables = UserLoginRequestEntity(
       identifier: usernameController.value.text,
-      password: passwordController.value.text,
-      // password: duSHA256(_passController.value.text),
+      password:
+          CipherUtil.encryptUserLoginPassword(passwordController.value.text),
     );
     try {
       UserLoginResponseEntity userProfile = await GqlUserAPI.login(

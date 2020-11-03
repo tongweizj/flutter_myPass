@@ -1,10 +1,5 @@
-// import 'dart:js';
-
 import 'package:mypass/ui/shared/shared.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:mypass/core/utils/utils.dart';
-import 'package:mypass/core/values/values.dart';
 
 Widget buildTextEdit(
     {BuildContext context,

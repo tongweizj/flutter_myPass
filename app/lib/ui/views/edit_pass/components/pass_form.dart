@@ -15,7 +15,7 @@ Widget buildPassForm(
   // print(passItem);
   usernameController.text = passItem.passUsername;
   emailController.text = passItem.passEmail;
-  passController.text = passItem.passPassword;
+  passController.text = passItem.passPassword_plain;
   websiteController.text = passItem.passWebsite;
   webLetterLogoController.text = passItem.webLetterLogo;
   return Container(
@@ -32,32 +32,33 @@ Widget buildPassForm(
               value: '',
               hintText: passItem.passUsername,
               controller: usernameController),
-          Divider(),
+          // Divider(),
           buildPasswordTextField(context,
               title: 'email',
               value: '',
               hintText: passItem.passEmail,
               isEmail: true,
               controller: emailController),
-          Divider(),
+          // Divider(),
           buildPasswordTextField(context,
               title: '网站',
               value: '',
               hintText: passItem.passWebsite,
               controller: websiteController),
-          Divider(),
+          // Divider(),
           buildPasswordTextField(context,
               title: '密码Logo',
               value: '',
               hintText: passItem.webLetterLogo,
               controller: webLetterLogoController),
-          Divider(),
+          // Divider(),
           buildPasswordTextField(context,
               title: '密码',
               value: '',
-              hintText: '********',
+              hintText: '',
               isPassword: true,
               controller: passController),
+          // Divider(),
         ],
       ));
 }

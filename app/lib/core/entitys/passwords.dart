@@ -1,4 +1,4 @@
-import 'dart:convert';
+import 'package:mypass/core/utils/cipher.dart';
 
 class PasswordsListRequestEntity {
   PasswordsListRequestEntity({
@@ -43,6 +43,7 @@ class AppPasswordModel {
     this.passUsername,
     this.passEmail,
     this.passPassword,
+    this.passPassword_plain,
     this.passWebsite,
     this.webLetterLogo,
     this.webLogo,
@@ -52,6 +53,7 @@ class AppPasswordModel {
   String passUsername;
   String passEmail;
   dynamic passPassword;
+  String passPassword_plain;
   String passWebsite;
   dynamic webLetterLogo;
   dynamic webLogo;
@@ -62,6 +64,8 @@ class AppPasswordModel {
         passUsername: json["pass_username"],
         passEmail: json["pass_email"],
         passPassword: json["pass_password"],
+        passPassword_plain:
+            CipherUtil.decryptPassword(password: json["pass_password"]),
         passWebsite: json["pass_website"],
         webLetterLogo: json["web_letter_logo"],
         webLogo: json["web_logo"],

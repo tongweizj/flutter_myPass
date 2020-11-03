@@ -1,19 +1,12 @@
-// import 'dart:convert';
-
-import 'package:mypass/core/api/apis.dart';
-import 'package:mypass/core/entitys/entitys.dart';
-import 'package:mypass/core/utils/utils.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:mypass/core/utils/validator.dart';
-import 'package:mypass/core/values/values.dart';
 import 'package:mypass/core/view_models/user_model.dart';
 import 'package:mypass/ui/shared/shared.dart';
 import 'package:mypass/ui/widgets/widgets.dart';
-import 'package:mypass/global.dart';
-import 'package:mypass/ui/views/login/components/app_bar.dart';
 import 'package:mypass/ui/views/login/components/button.dart';
 import 'package:mypass/ui/views/login/components/input.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 // import 'package:luci_thermal_personal_app/core/api/apis.dart';
 
 // import 'package:luci_thermal_personal_app/global.dart';
@@ -130,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
           Positioned(
             child: Scaffold(
                 backgroundColor: appBgFivth, //把scaffold的背景色改成透明
-                appBar: secondAppBar(
+                appBar: passAppBar(
                   context: context,
                   leading: IconButton(
                     icon: Icon(

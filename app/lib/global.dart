@@ -10,6 +10,10 @@ class Global {
   /// 用户配置
   static UserLoginResponseEntity profile = UserLoginResponseEntity();
 
+  /// 用户登录认证字符串
+  static String credential = '';
+  static String encryptKey = '';
+
   /// 发布渠道
   static String channel = "xiaomi";
 

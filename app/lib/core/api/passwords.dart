@@ -1,12 +1,10 @@
-import 'package:mypass/core/entitys/entitys.dart';
+import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
+import 'package:mypass/core/entitys/entitys.dart';
 import 'package:mypass/core/graphql/graphql.dart';
 import 'package:mypass/core/graphql/password.dart';
 import 'package:mypass/core/utils/utils.dart';
-import 'package:mypass/core/view_models/pass_model.dart';
-import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:provider/provider.dart';
 
 /// 用户
 class GqlPasswordAPI {

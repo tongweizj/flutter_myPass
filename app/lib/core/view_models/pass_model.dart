@@ -1,6 +1,6 @@
 import 'package:mypass/core/api/passwords.dart';
 import 'package:mypass/core/entitys/passwords.dart';
-import 'package:mypass/core/enums/viewstate.dart';
+import 'package:mypass/core/values/enums.dart';
 import 'package:mypass/global.dart';
 import 'package:flutter/widgets.dart';
 

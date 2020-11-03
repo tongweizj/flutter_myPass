@@ -1,14 +1,11 @@
-import 'package:mypass/core/api/apis.dart';
-import 'package:mypass/core/utils/utils.dart';
-import 'package:mypass/core/view_models/pass_model.dart';
 import 'package:mypass/global.dart';
+import 'package:flutter/material.dart';
 import 'package:mypass/ui/shared/shared.dart';
-import 'package:provider/provider.dart';
 import 'package:mypass/ui/widgets/widgets.dart';
 import 'package:mypass/ui/views/add_pass/components/build_pass_button.dart';
 import 'package:mypass/ui/views/add_pass/components/pass_form.dart';
-// import 'package:mypass/ui/views/add_pass/components/webiste_form.dart';
-import 'package:flutter/material.dart';
+import 'package:mypass/core/api/apis.dart';
+import 'package:mypass/core/utils/cipher.dart';
 
 class AddPassPage extends StatefulWidget {
   AddPassPage({Key key}) : super(key: key);
@@ -32,9 +29,10 @@ class _AddPassPageState extends State<AddPassPage> {
       TextEditingController();
   // 顶部导航
   Widget _buildAppBar() {
-    return fouthAppBar(
+    return passAppBar(
         context: context,
         title: '添加密码',
+        backgroundColor: appBgFourth,
         leading: MaterialButton(
           onPressed: () {
             Navigator.pop(context);
@@ -56,7 +54,8 @@ class _AddPassPageState extends State<AddPassPage> {
                 "pass_username": _usernameController.text,
                 "pass_website": _websiteController.text,
                 "web_letter_logo": _webLetterLogoController.text,
-                "pass_password": _passController.text,
+                "pass_password":
+                    CipherUtil.encryptPassword(password: _passController.text),
                 "usr": Global.profile.user.id
               };
 

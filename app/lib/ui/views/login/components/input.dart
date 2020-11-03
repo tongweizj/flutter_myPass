@@ -1,5 +1,3 @@
-import 'package:mypass/core/utils/utils.dart';
-import 'package:mypass/core/values/values.dart';
 import 'package:mypass/ui/shared/shared.dart';
 import 'package:flutter/material.dart';
 
