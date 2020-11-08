@@ -15,7 +15,7 @@ class GqlPasswordAPI {
   }) async {
     QueryResult response = await GraphqlClientUtil.query(
         context: context, schema: GQL_Passwords_List, variables: params);
-    print("response.data.toString()");
+    print("appPasswords");
     print(response.data.data["appPasswords"].toString());
     return PasswordsListResponseModel.fromJson(response.data.data);
   }

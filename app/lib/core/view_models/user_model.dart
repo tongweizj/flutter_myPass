@@ -1,4 +1,5 @@
 import 'package:mypass/core/api/apis.dart';
+import 'package:mypass/core/entitys/cipher.dart';
 import 'package:mypass/core/entitys/entitys.dart';
 import 'package:mypass/core/utils/cipher.dart';
 import 'package:mypass/core/values/enums.dart';
@@ -34,7 +35,9 @@ class UserModel with ChangeNotifier {
         context: context,
         variables: variables,
       );
-      Global.saveProfile(userProfile);
+
+      Global.profile = userProfile;
+      Global.saveProfile(Global.profile);
 
       Navigator.pushNamed(
         context,
@@ -51,10 +54,13 @@ class UserModel with ChangeNotifier {
 
   Future logout() async {
     changeState(ViewState.Busy);
-    Global.profile = null;
 
     /// 删除用户信息
+    Global.profile = UserLoginResponseEntity();
+    Global.cipher = CipherEntity();
+
     StorageUtil().remove(STORAGE_USER_PROFILE_KEY);
+    StorageUtil().remove(STORAGE_USER_CIPHER_KEY);
     changeState(ViewState.Idle);
   }
 }

@@ -176,7 +176,7 @@ Widget buildPassInfoBlock(BuildContext context, AppPasswordModel passItem) {
             subtitle: passItem.passWebsite,
             trailing: FlatButton(
               textColor: appTextThird,
-              onPressed: () => _launchURL(passItem.passWebsite), //() {},
+              onPressed: () => _launchInBrowser(passItem.passWebsite), //() {},
               child: Text(
                 "打开",
                 textAlign: TextAlign.right,

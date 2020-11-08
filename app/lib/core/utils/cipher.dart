@@ -7,6 +7,7 @@ import 'dart:convert';
 
 import 'package:mypass/global.dart';
 import 'package:steel_crypt/steel_crypt.dart';
+import 'package:mypass/core/entitys/cipher.dart';
 
 class CipherUtil {
   /// 登陆密码加密
@@ -16,9 +17,12 @@ class CipherUtil {
     // var bytes = utf8.encode(password);
     var hmacSha256 = new Hmac(sha256, utf8.encode(CIPHER_KEY)); // HMAC-SHA256
     var digest = hmacSha256.convert(utf8.encode(password));
+    print(Global.cipher);
+    print(Global.profile);
 
-    Global.credential = digest.toString();
-    Global.encryptKey = base64.encode(digest.bytes);
+    Global.cipher.credential = digest.toString();
+    Global.cipher.encryptKey = base64.encode(digest.bytes);
+    Global.saveCipher(Global.cipher);
     return digest.toString();
   }
 
@@ -34,7 +38,8 @@ class CipherUtil {
     var iv16 = keyGen.genDart(len: 16);
 
     // generated AES encrypter with key + padding
-    var aesMaker = AesCrypt(key: Global.encryptKey, padding: PaddingAES.pkcs7);
+    var aesMaker =
+        AesCrypt(key: Global.cipher.encryptKey, padding: PaddingAES.pkcs7);
     var encrypted = aesMaker.gcm.encrypt(inp: password, iv: iv16);
 
     /// 加密信息转成str
@@ -67,7 +72,8 @@ class CipherUtil {
     // var iv16 = credential['iv'];
     // generated AES encrypter with key + padding
 
-    var aesMaker = AesCrypt(key: Global.encryptKey, padding: PaddingAES.pkcs7);
+    var aesMaker =
+        AesCrypt(key: Global.cipher.encryptKey, padding: PaddingAES.pkcs7);
 
     var encrypted =
         aesMaker.gcm.decrypt(enc: credential['password'], iv: credential['iv']);

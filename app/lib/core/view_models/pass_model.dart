@@ -50,7 +50,7 @@ class PassModel with ChangeNotifier {
       context: context,
       params: {"username": Global.profile.user.username},
     );
-    // print(passList);
+    print(passList);
     // notifyListeners();
     changeState(ViewState.Idle);
   }

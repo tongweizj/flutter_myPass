@@ -25,7 +25,7 @@ class AppDrawer extends StatelessWidget {
           SizedBox(height: duSetHeight(280)),
           ListTile(
             title: Text(
-              'v1.0.1_build 2020/10/18',
+              'v1.0.2_build 2020/11/03',
               style: TextStyle(fontSize: 11, color: Colors.grey[300]),
             ),
           ),

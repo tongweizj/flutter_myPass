@@ -25,8 +25,8 @@ class PassDetailModel with ChangeNotifier {
       // _password = CipherUtil.decryptPassword(password: password);
       _password = password;
     }
-    var regex = new RegExp(r'[a-zA-Z0-9]');
-    _showPassword = _password.replaceAll(regex, '*');
+    // var regex = new RegExp(r'[a-zA-Z0-9]');
+    _showPassword = '*' * _password.length;
 
     // _showPassword = _password;
 

@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:mypass/core/entitys/cipher.dart';
 import 'package:mypass/core/entitys/entitys.dart';
 import 'package:mypass/core/utils/utils.dart';
 import 'package:mypass/core/values/values.dart';
@@ -11,8 +12,9 @@ class Global {
   static UserLoginResponseEntity profile = UserLoginResponseEntity();
 
   /// 用户登录认证字符串
-  static String credential = '';
-  static String encryptKey = '';
+  // static String credential = '';
+  // static String encryptKey = '';
+  static CipherEntity cipher = CipherEntity();
 
   /// 发布渠道
   static String channel = "xiaomi";
@@ -74,7 +76,13 @@ class Global {
       profile = UserLoginResponseEntity.fromJson(_profileJSON);
       isOfflineLogin = true;
     }
+    // 读取离线加密信息信息
+    var _cipherJSON = StorageUtil().getJSON(STORAGE_USER_CIPHER_KEY);
 
+    if (_cipherJSON != null) {
+      cipher = CipherEntity.fromJson(_cipherJSON);
+      isOfflineLogin = true;
+    }
     // android 状态栏为透明的沉浸
     // if (Platform.isAndroid) {
     //   SystemUiOverlayStyle systemUiOverlayStyle =
@@ -88,5 +96,11 @@ class Global {
     profile = userResponse;
     return StorageUtil()
         .setJSON(STORAGE_USER_PROFILE_KEY, userResponse.toJson());
+  }
+
+  // 持久化 加密信息信息
+  static Future<bool> saveCipher(CipherEntity cipher) {
+    cipher = cipher;
+    return StorageUtil().setJSON(STORAGE_USER_CIPHER_KEY, cipher);
   }
 }
