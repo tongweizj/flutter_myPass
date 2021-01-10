@@ -1,6 +1,8 @@
-// // import 'package:mypass/core/utils/cipher.dart';
-// import "dart:typed_data";
-// import 'dart:convert';
+// import 'package:flutter/material.dart';
+import 'package:mypass/core/utils/cipher.dart';
+import "dart:typed_data";
+import 'dart:convert';
+import 'package:test/test.dart';
 // import "package:cipher/cipher.dart";
 // import "package:cipher/impl/base.dart";
 
@@ -50,3 +52,20 @@
 //   var dencryptedDataStr = Uint8ListToString(dencryptedEncodedData);
 //   //expect(testStr, dencryptedDataStr);
 // }
+void main() {
+  test('测试 解密', () async {
+    var pass = '123456';
+    var decodePass = CipherUtil.encryptPassword(password: pass);
+    print(decodePass);
+    expect(decodePass, 'max@luci.ai');
+  });
+
+  // test('测试 解密', () async {
+  //   var pass =
+  //       '7b2270617373776f7264223a22356d652b624c70455a75535a582b6e593331496637513d3d222c226976223a223767594b36546b705062327733716a795872715170673d3d227d';
+  //   var decodePass = CipherUtil.decryptPassword(password: pass);
+  //   print(decodePass);
+
+  //   expect(decodePass, 'max@luci.ai');
+  // });
+}

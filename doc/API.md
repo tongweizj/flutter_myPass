@@ -2,6 +2,7 @@
 
 
 ## 根据用户名，查找关联密码记录
+
 ```
 query UserPass($username: String!) {
   appPasswords(where: {user:{username: $username } }) {
