@@ -16,8 +16,8 @@ class GqlPasswordAPI {
     QueryResult response = await GraphqlClientUtil.query(
         context: context, schema: GQL_Passwords_List, variables: params);
     print("appPasswords");
-    print(response.data.data["appPasswords"].toString());
-    return PasswordsListResponseModel.fromJson(response.data.data);
+    print(response.data["appPasswords"].toString());
+    return PasswordsListResponseModel.fromJson(response.data);
   }
 
   /// 创建新密码
@@ -26,7 +26,7 @@ class GqlPasswordAPI {
     QueryResult response = await GraphqlClientUtil.mutate(
         context: context, schema: GQL_Password_Add, variables: params);
     print("response.data.toString()");
-    print(response.data.data["appPasswords"].toString());
+    print(response.data["appPasswords"].toString());
     // PasswordsListResponseEntity.fromJson(response.data.data)
     // Future.delayed(Duration(milliseconds: 1)).then((e) {
     //   context.read<PassModel>().getPasswordList(context);
@@ -41,7 +41,7 @@ class GqlPasswordAPI {
     QueryResult response = await GraphqlClientUtil.mutate(
         context: context, schema: GQL_Password_Update, variables: params);
     print("response.data.toString()");
-    print(response.data.data["appPasswords"].toString());
+    print(response.data["appPasswords"].toString());
     // PasswordsListResponseEntity.fromJson(response.data.data)
     return true;
   }
@@ -52,7 +52,7 @@ class GqlPasswordAPI {
     QueryResult response = await GraphqlClientUtil.mutate(
         context: context, schema: GQL_Password_delete, variables: params);
     print("response.data.toString()");
-    print(response.data.data["appPasswords"].toString());
+    print(response.data["appPasswords"].toString());
     // PasswordsListResponseEntity.fromJson(response.data.data)
     return true;
   }
