@@ -19,7 +19,7 @@ class AppDrawer extends StatelessWidget {
             text: 'Logout',
             onTap: () {
               context.read<UserModel>().logout();
-              Navigator.pushNamed(context, '/login');
+              Navigator.pushNamed(context, '/launch');
             },
           ),
           SizedBox(height: duSetHeight(280)),
