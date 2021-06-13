@@ -1,6 +1,6 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/tongweizj/development/flutter"
+export "FLUTTER_ROOT=/Users/tongweizj/dev/flutter"
 export "FLUTTER_APPLICATION_PATH=/Volumes/Files/workspace/gitYoese/SP_MyPass/app"
 export "FLUTTER_TARGET=/Volumes/Files/workspace/gitYoese/SP_MyPass/app/lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"

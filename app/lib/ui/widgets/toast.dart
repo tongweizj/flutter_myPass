@@ -12,7 +12,7 @@ Future<bool> toastInfo({
     msg: msg,
     toastLength: Toast.LENGTH_SHORT,
     gravity: ToastGravity.TOP,
-    timeInSecForIos: 1,
+    timeInSecForIosWeb: 1,
     backgroundColor: backgroundColor,
     textColor: textColor,
     fontSize: duSetFontSize(16),
