@@ -9,7 +9,7 @@
   * [x] Home Page
   * [ ] Regrister Page
 * [ ] v0.3 Password detail / Add / Edit Page
-
+* [] v0.4 从mongo切换倒firebase
 ## 技术架构
 <img src="/doc/img/technology_architecture.png" width="900px"/> 
 
