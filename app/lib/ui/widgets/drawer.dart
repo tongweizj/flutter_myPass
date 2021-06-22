@@ -1,7 +1,7 @@
 import 'package:mypass/core/view_models/user_model.dart';
-import 'package:mypass/ui/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mypass/ui/style/style.dart';
 import 'package:provider/provider.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -9,7 +9,7 @@ class AppDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
         child: Container(
-      color: appBgFourth,
+      color: StyleColors.appBgFourth,
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
@@ -25,7 +25,7 @@ class AppDrawer extends StatelessWidget {
           SizedBox(height: duSetHeight(280)),
           ListTile(
             title: Text(
-              'v1.0.2_build 2020/11/03',
+              'v1.0.3_build 2021/06/21',
               style: TextStyle(fontSize: 11, color: Colors.grey[300]),
             ),
           ),
@@ -39,7 +39,7 @@ class AppDrawer extends StatelessWidget {
         margin: EdgeInsets.zero,
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
-          color: appBgFourth,
+          color: StyleColors.appBgFourth,
         ),
         child: Stack(children: <Widget>[
           Positioned(
@@ -54,20 +54,20 @@ class AppDrawer extends StatelessWidget {
   }
 
   Widget _createDrawerItem({
-    IconData icon,
-    String text,
-    GestureTapCallback onTap,
+    IconData? icon,
+    String? text,
+    GestureTapCallback? onTap,
   }) {
     return ListTile(
       title: Row(
         children: <Widget>[
           Icon(
             icon,
-            color: appBgFifth,
+            color: StyleColors.appBgFifth,
           ),
           Padding(
               padding: EdgeInsets.only(left: 8.0),
-              child: Text(text,
+              child: Text(text!,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 14.0,

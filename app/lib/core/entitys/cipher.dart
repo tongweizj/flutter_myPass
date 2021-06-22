@@ -1,7 +1,7 @@
 class CipherEntity {
   CipherEntity({
-    this.credential,
-    this.encryptKey,
+    required this.credential,
+    required this.encryptKey,
   });
 
   String credential;

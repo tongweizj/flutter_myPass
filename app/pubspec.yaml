@@ -3,53 +3,36 @@ description: A new Flutter project.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.3+4
 
 environment:
-  sdk: '>=2.7.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.3
-  # 屏幕适配
-  flutter_screenutil: ^1.0.2 # 需要大概，暂时先不升级
-
-  #graphql
-  graphql_flutter: ^3.1.0  # 要放弃使用，所以暂时不升级
-
-  # 提示 toast
-  fluttertoast: ^8.0.7 #^3.1.3
-
-  # storage + cache
-  shared_preferences: ^2.0.6 #^0.5.8
-
-  # 状态管理
-  provider: ^5.0.0 #^4.3.1
-  # 调用本地浏览器
+  cupertino_icons: ^1.0.2
+   # 基本业务插件
+  fluttertoast: ^8.0.7
+  flutter_screenutil: ^5.0.0+2
+  provider: ^5.0.0   # 状态管理
+  shared_preferences: ^2.0.6    # storage + cache
+  # google firebase
+  firebase_core: ^1.3.0
+  firebase_analytics: ^8.1.2
+  firebase_database: ^7.1.1
+  firebase_auth: ^1.4.1
+  flutter_signin_button: ^2.0.0
+  google_sign_in: ^5.0.4
   url_launcher: ^6.0.6 #^5.7.8
-
-  # 加解密
-  # encrypt: ^4.1.0
-  crypto: ^2.1.5
-  steel_crypt: ^2.2.2+1
-  # firebase
-  # firebase_core: ^1.1.0
-  # firebase_analytics: ^8.1.0
-  # firebase_database: ^7.0.0
-  # firebase_auth: ^1.2.0
-  # flutter_signin_button: ^1.0.0
-  # google_sign_in: ^5.0.0-nullsafety
+  # 加密
+  crypto: ^3.0.1
+  steel_crypt: ^3.0.0+1
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  # icons
-  test: ^1.14.4
-  flutter_launcher_icons: ^0.7.5
-
+  flutter_launcher_icons: ^0.9.0
 flutter_icons:
   android: 'launcher_icon'
   ios: true
@@ -60,29 +43,3 @@ flutter:
 
   assets:
     - assets/images/
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware.
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages

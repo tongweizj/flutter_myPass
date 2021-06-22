@@ -1,8 +1,6 @@
-import 'package:mypass/core/utils/cipher.dart';
-
 class PasswordsListRequestEntity {
   PasswordsListRequestEntity({
-    this.username,
+    required this.username,
   });
 
   String username;
@@ -21,7 +19,7 @@ class PasswordsListRequestEntity {
 
 class PasswordsListResponseModel {
   PasswordsListResponseModel({
-    this.appPasswords,
+    required this.appPasswords,
   });
 
   List<AppPasswordModel> appPasswords;
@@ -39,12 +37,12 @@ class PasswordsListResponseModel {
 
 class AppPasswordModel {
   AppPasswordModel({
-    this.id,
-    this.passUsername,
-    this.passEmail,
+    required this.id,
+    required this.passUsername,
+    required this.passEmail,
     this.passPassword,
-    this.passPassword_plain,
-    this.passWebsite,
+    required this.passPlainPassword,
+    required this.passWebsite,
     this.webLetterLogo,
     this.webLogo,
   });
@@ -53,7 +51,7 @@ class AppPasswordModel {
   String passUsername;
   String passEmail;
   dynamic passPassword;
-  String passPassword_plain;
+  String passPlainPassword;
   String passWebsite;
   dynamic webLetterLogo;
   dynamic webLogo;
@@ -61,14 +59,14 @@ class AppPasswordModel {
   factory AppPasswordModel.fromJson(Map<String, dynamic> json) =>
       AppPasswordModel(
         id: json["id"],
-        passUsername: json["pass_username"],
-        passEmail: json["pass_email"],
-        passPassword: json["pass_password"],
-        passPassword_plain:
-            CipherUtil.decryptPassword(password: json["pass_password"]),
-        passWebsite: json["pass_website"],
-        webLetterLogo: json["web_letter_logo"],
-        webLogo: json["web_logo"],
+        passUsername: json["username"],
+        passEmail: json["email"],
+        passPassword: json["password"].toString(),
+        passPlainPassword: '123456',
+        //CipherUtil.decryptPassword(password: json["password"].toString()),//TODO 因为添加的时候，密码没有加密，所以现在有问题
+        passWebsite: json["website"],
+        webLetterLogo: json["webLetterLogo"],
+        webLogo: json["web_logo"] ?? '',
       );
 
   Map<String, dynamic> toJson() => {

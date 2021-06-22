@@ -1,16 +1,18 @@
-import 'package:mypass/ui/shared/shared.dart';
 import 'package:flutter/material.dart';
+import 'package:mypass/ui/style/style.dart';
 
 /// AppBar
 /// leading: 文字
 /// actions: 文字
 /// 添加、编辑密码
-Widget passAppBar(
-    {@required BuildContext context,
-    String title,
-    Widget leading,
-    List<Widget> actions,
-    Color backgroundColor: appBgFivth,
+///
+
+PreferredSizeWidget passAppBar(
+    {required BuildContext context,
+    String title = '',
+    Widget? leading = null,
+    List<Widget>? actions,
+    Color backgroundColor: StyleColors.appBgFivth,
     Brightness brightness: Brightness.dark}) {
   return AppBar(
     backgroundColor: backgroundColor,
@@ -20,7 +22,7 @@ Widget passAppBar(
             child: Text(
               title,
               style: TextStyle(
-                color: appBgPrimary,
+                color: StyleColors.appBgPrimary,
                 fontFamily: 'Montserrat',
                 fontSize: duSetFontSize(16),
                 fontWeight: FontWeight.w600,

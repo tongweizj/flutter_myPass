@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mypass/ui/shared/shared.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 分割线
 Widget buildDivideritem() {
   return Container(
-      width: duSetWidth(375),
-      height: duSetHeight(20),
+      width: 375.w,
+      height: 20.h,
       margin: EdgeInsets.only(
-        top: duSetHeight(0),
-        bottom: duSetHeight(0),
-        left: duSetWidth(14),
-        right: duSetWidth(14),
+        top: 0,
+        bottom: 0,
+        left: 14.w,
+        right: 14.w,
       ),
       alignment: Alignment.centerLeft,
       child: Divider(height: 1));

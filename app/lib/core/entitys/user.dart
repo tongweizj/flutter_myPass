@@ -1,8 +1,8 @@
 /// 用户登录请求 - request
 class UserLoginRequestEntity {
   UserLoginRequestEntity({
-    this.identifier,
-    this.password,
+    required this.identifier,
+    required this.password,
   });
 
   String identifier;
@@ -21,34 +21,34 @@ class UserLoginRequestEntity {
 }
 
 // 用户登录 - Response
-class UserLoginResponseEntity {
-  UserLoginResponseEntity({
-    this.jwt,
-    this.user,
-  });
+// class UserLoginResponseEntity {
+//   UserLoginResponseEntity({
+//      this.jwt,
+//      this.user,
+//   });
 
-  String jwt;
-  UserEntity user;
+//   String jwt;
+//   UserEntity user;
 
-  factory UserLoginResponseEntity.fromJson(Map<String, dynamic> json) =>
-      UserLoginResponseEntity(
-        jwt: json["jwt"],
-        user: UserEntity.fromJson(json["user"]),
-      );
+//   factory UserLoginResponseEntity.fromJson(Map<String, dynamic> json) =>
+//       UserLoginResponseEntity(
+//         jwt: json["jwt"],
+//         user: UserEntity.fromJson(json["user"]),
+//       );
 
-  Map<String, dynamic> toJson() => {
-        "jwt": jwt,
-        "user": user.toJson(),
-      };
-}
+//   Map<String, dynamic> toJson() => {
+//         "jwt": jwt,
+//         "user": user.toJson(),
+//       };
+// }
 
 //////////////////////////////////////////////////////////////////
 /// 用户注册-Request
 class UserRegisterRequestEntity {
   UserRegisterRequestEntity({
-    this.username,
-    this.email,
-    this.password,
+    required this.username,
+    required this.email,
+    required this.password,
   });
 
   String username;
@@ -73,7 +73,7 @@ class UserRegisterRequestEntity {
 ///
 class UserRegisterResponseEntity {
   UserRegisterResponseEntity({
-    this.user,
+    required this.user,
   });
 
   UserEntity user;
@@ -92,9 +92,9 @@ class UserRegisterResponseEntity {
 // 用户
 class UserEntity {
   UserEntity({
-    this.id,
-    this.username,
-    this.email,
+    required this.id,
+    required this.username,
+    required this.email,
   });
 
   String id;

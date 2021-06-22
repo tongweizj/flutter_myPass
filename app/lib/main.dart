@@ -1,36 +1,34 @@
+import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:mypass/global.dart';
-import 'package:mypass/core/view_models/pass_model.dart';
-import 'package:mypass/core/view_models/user_model.dart';
-import 'core/view_models/pass_detail_model.dart';
+import 'package:mypass/config/global.dart';
+import 'package:mypass/provider_setup.dart';
 import 'package:mypass/ui/routes.dart';
-import 'package:mypass/ui/views/index/index.dart';
+import 'package:mypass/ui/splash/splash.dart';
 
-// void main() => runApp(MyApp());
-void main() => Global.init().then((e) => runApp(
-      MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => PassModel()),
-          ChangeNotifierProvider(create: (_) => UserModel()),
-          ChangeNotifierProvider<PassDetailModel>(
-            // 等使用时，再创建
-            create: (_) => PassDetailModel(),
-          ),
-        ],
-        child: MyApp(),
-      ),
-    ));
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // await FirebaseAuth.instance.useEmulator('http://192.168.1.106:9099');
+  Global.init().then((e) => runApp(MyApp()));
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ducafecat.tech',
-      home: IndexPage(),
-      routes: staticRoutes,
-      debugShowCheckedModeBanner: false,
-    );
+    return MultiProvider(
+        providers: providers,
+        child: ScreenUtilInit(
+            designSize:
+                Platform.isIOS == true ? Size(375, 667) : Size(375, 667),
+            builder: () => MaterialApp(
+                  title: 'yoese.com',
+                  home: SplashPage(),
+                  routes: staticRoutes,
+                  debugShowCheckedModeBanner: false,
+                )));
   }
 }

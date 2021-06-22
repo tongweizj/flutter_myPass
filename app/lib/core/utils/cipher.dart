@@ -1,13 +1,10 @@
-import 'dart:typed_data';
-
-import 'package:crypto/crypto.dart';
-
-import 'package:mypass/core/values/setting.dart';
 import 'dart:convert';
-
-import 'package:mypass/global.dart';
+import 'dart:typed_data';
+import 'package:crypto/crypto.dart';
 import 'package:steel_crypt/steel_crypt.dart';
-import 'package:mypass/core/entitys/cipher.dart';
+
+import 'package:mypass/config/global.dart';
+import 'package:mypass/config/setting.dart';
 
 class CipherUtil {
   /// 登陆密码加密
@@ -18,17 +15,18 @@ class CipherUtil {
     var hmacSha256 = new Hmac(sha256, utf8.encode(CIPHER_KEY)); // HMAC-SHA256
     var digest = hmacSha256.convert(utf8.encode(password));
     print(Global.cipher);
-    print(Global.profile);
+    // print(Global.profile);
 
     Global.cipher.credential = digest.toString();
     Global.cipher.encryptKey = base64.encode(digest.bytes);
     Global.saveCipher(Global.cipher);
+    // print(digest.toString());
     return digest.toString();
   }
 
   /// 加密：用户保存的密码
   /// 使用encrypt aes
-  static encryptPassword({String password}) {
+  static encryptPassword({required String password}) {
     // Key generator
     var keyGen = CryptKey();
     // key32 : 用户登陆密码
@@ -58,7 +56,7 @@ class CipherUtil {
   }
 
   /// 解密：用户保存的密码
-  static decryptPassword({String password}) {
+  static decryptPassword({required String password}) {
     // var xxxB = Hex.createUint8ListFromHexString(password);
     // print(xxxB);
     AsciiCodec ascStrToBuff = new AsciiCodec();
@@ -93,7 +91,7 @@ class CipherUtil {
 class Hex {
   /// Creates a `Uint8List` by a hex string.
   static Uint8List createUint8ListFromHexString(String hex) {
-    if (hex == null) throw new ArgumentError("hex is null");
+    // if (hex == null) throw new ArgumentError("hex is null");
 
     var result = new Uint8List(hex.length ~/ 2);
     for (var i = 0; i < hex.length; i += 2) {
@@ -107,7 +105,7 @@ class Hex {
 
   /// Returns a hex string by a `Uint8List`.
   static String formatBytesAsHexString(Uint8List bytes) {
-    if (bytes == null) throw new ArgumentError("The list is null");
+    // if (bytes == null) throw new ArgumentError("The list is null");
 
     var result = new StringBuffer();
     for (var i = 0; i < bytes.lengthInBytes; i++) {
