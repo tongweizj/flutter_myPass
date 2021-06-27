@@ -3,7 +3,7 @@ import 'package:mypass/config/setting.dart';
 import 'package:mypass/config/storage.dart';
 import 'package:mypass/core/entitys/cipher.dart';
 import 'package:mypass/core/utils/storage.dart';
-import 'package:mypass/core/view_models/user_model.dart';
+// import 'package:mypass/core/view_models/user_model.dart';
 
 /// 全局配置
 class Global {

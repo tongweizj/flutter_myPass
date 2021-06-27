@@ -59,9 +59,9 @@ class EmailPasswordFormState extends State<EmailPasswordForm> {
                       );
                 }
               },
-              title: '登 陆',
+              title: 'LOGIN',
               width: 0.8.sw,
-              height: 30.h,
+              height: 40.h,
               gbColor: StyleColors.appColorFirst,
             ),
           ],

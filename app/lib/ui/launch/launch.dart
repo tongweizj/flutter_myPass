@@ -89,7 +89,7 @@ class _LaunchPageState extends State<LaunchPage> {
             gbColor: StyleColors.appColorFirst,
             title: "登录",
             width: 0.8.sw,
-            height: 30.h,
+            height: 40.h,
           ),
         ],
       ),

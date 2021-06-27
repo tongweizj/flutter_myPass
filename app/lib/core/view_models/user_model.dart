@@ -60,7 +60,7 @@ class UserModel with ChangeNotifier {
       Global.isLogin = true; // 修改是否登陆状态
       StorageUtil().setBool(STORAGE_USER_ALREADY_LOGIN_KEY, true);
       StorageUtil().setStr(STORAGE_USER_USER_ID_KEY, _currentUser!.uid);
-      Future.delayed(Duration(milliseconds: 500)).then((e) {
+      Future.delayed(Duration(milliseconds: 100)).then((e) {
         Navigator.pushNamed(
           context,
           "/home",
