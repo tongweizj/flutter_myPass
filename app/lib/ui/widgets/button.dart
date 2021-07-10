@@ -28,9 +28,9 @@ Widget longRectangleBtnWidget({
               ),
               TextButton(
                 style: TextButton.styleFrom(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(16.0),
                   primary: Colors.white,
-                  textStyle: const TextStyle(fontSize: 20),
+                  textStyle: TextStyle(fontSize: 20.sp),
                 ),
                 onPressed: onPressed,
                 child: Text(
@@ -38,9 +38,8 @@ Widget longRectangleBtnWidget({
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: StyleColors.appColorThird,
-                    fontFamily: "Montserrat",
                     fontWeight: FontWeight.w400,
-                    fontSize: 18,
+                    fontSize: 18.sp,
                     height: 1,
                   ),
                 ),

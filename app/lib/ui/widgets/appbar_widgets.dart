@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mypass/ui/style/style.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// AppBar
 /// leading: 文字
@@ -23,8 +24,7 @@ PreferredSizeWidget passAppBar(
               title,
               style: TextStyle(
                 color: StyleColors.appBgPrimary,
-                fontFamily: 'Montserrat',
-                fontSize: duSetFontSize(16),
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -124,7 +124,7 @@ PreferredSizeWidget passAppBar(
 //         ? Center(
 //             child: Text(
 //               title,
-//               style: TextStyle(fontSize: duSetFontSize(16)),
+//               style: TextStyle(fontSize: 16)),
 //             ),
 //           )
 //         : null,

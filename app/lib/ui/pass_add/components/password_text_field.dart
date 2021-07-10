@@ -2,6 +2,7 @@ import 'package:mypass/core/view_models/pass_detail_model.dart';
 import 'package:flutter/material.dart';
 import 'package:mypass/ui/style/style.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 /// 输入模块
 ///
@@ -26,15 +27,14 @@ Widget buildPasswordTextField(BuildContext context,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-            // height: duSetHeight(11),
-            margin: EdgeInsets.only(top: duSetHeight(10)),
+            margin: EdgeInsets.fromLTRB(0, 10.h, 0, 0),
             child: Text(
               title,
               textAlign: TextAlign.start,
               style: TextStyle(
-                fontSize: duSetFontSize(12),
+                fontSize: 12.sp,
                 color: StyleColors.appTextFurth,
-                height: duSetHeight(1),
+                height: 1.h,
               ),
             )),
         isPassword == false
@@ -57,8 +57,8 @@ Widget inputTextEdit(
     bool isEmail = false,
     bool obscureText = false}) {
   return Container(
-    height: duSetHeight(30),
-    margin: EdgeInsets.only(top: duSetHeight(0)),
+    height: 30.h,
+    margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
     // color: appColorFirst,
     child: TextField(
       controller: controller,
@@ -72,9 +72,8 @@ Widget inputTextEdit(
       ),
       style: TextStyle(
         color: StyleColors.appColorSecond,
-        fontFamily: "SFProText",
         fontWeight: FontWeight.w400,
-        fontSize: duSetFontSize(14),
+        fontSize: 14.sp,
       ),
       maxLines: 1,
       autocorrect: false, // 自动纠正
@@ -93,8 +92,8 @@ Widget inputPasswordEdit(BuildContext context,
     children: <Widget>[
       Expanded(
           child: Container(
-        height: duSetHeight(30),
-        margin: EdgeInsets.only(top: duSetHeight(0)),
+        height: 30.h,
+        margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
         // color: appColorFirst,
         child: TextField(
           controller: controller,
@@ -109,9 +108,8 @@ Widget inputPasswordEdit(BuildContext context,
           ),
           style: TextStyle(
             color: StyleColors.appColorSecond,
-            fontFamily: "SFProText",
             fontWeight: FontWeight.w400,
-            fontSize: duSetFontSize(14),
+            fontSize: 14.sp,
           ),
           maxLines: 1,
           autocorrect: false, // 自动纠正
@@ -128,7 +126,7 @@ Widget inputPasswordEdit(BuildContext context,
             : Icons.visibility_off),
       ),
       SizedBox(
-        width: duSetWidth(20),
+        width: 20.w,
       ),
     ],
   );

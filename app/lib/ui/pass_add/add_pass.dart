@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:mypass/ui/style/style.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'components/appbar.dart';
 import 'components/build_pass_button.dart';
 import 'components/pass_form.dart';
@@ -42,7 +41,7 @@ class _AddPassPageState extends State<AddPassPage> {
           children: <Widget>[
             /// 模块1： 密码信息
             SizedBox(
-              height: duSetHeight(2),
+              height: 2.h,
             ),
             buildPassForm(context,
                 emailController: _emailController,

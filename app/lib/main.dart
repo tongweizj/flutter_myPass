@@ -28,6 +28,11 @@ class MyApp extends StatelessWidget {
                   title: 'yoese.com',
                   home: SplashPage(),
                   routes: staticRoutes,
+                  theme: ThemeData(
+                    primarySwatch: Colors.blue,
+                    //要支持下面这个需要使用第一种初始化方式
+                    textTheme: TextTheme(button: TextStyle(fontSize: 45.sp)),
+                  ),
                   debugShowCheckedModeBanner: false,
                 )));
   }

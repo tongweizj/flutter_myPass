@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mypass/ui/style/style.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'password_text_field.dart';
 
@@ -33,12 +33,8 @@ buildPassForm(
 // Widget build(BuildContext context) {
 {
   return Container(
-      height: duSetHeight(350),
-      padding: EdgeInsets.only(
-          left: duSetWidth(20),
-          right: duSetWidth(0),
-          bottom: duSetHeight(0),
-          top: duSetHeight(10)),
+      height: 350.h,
+      padding: EdgeInsets.fromLTRB(20.w, 10.h, 0, 0),
       child: Column(
         children: <Widget>[
           buildPasswordTextField(

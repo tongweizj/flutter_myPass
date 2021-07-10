@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mypass/ui/style/colors.dart';
 import 'package:mypass/ui/style/style.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget avatarItem(String webLetterLogo) {
   return Container(
-      margin: EdgeInsets.only(top: duSetHeight(0), bottom: duSetHeight(0)),
-      width: duSetWidth(42),
-      height: duSetWidth(42),
-      // height: duSetHeight(67),
-
+      margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+      width: 42.w,
+      height: 42.w,
       alignment: Alignment.center,
       decoration: BoxDecoration(
           color: StyleColors.appColorFirst,
@@ -19,9 +18,8 @@ Widget avatarItem(String webLetterLogo) {
         webLetterLogo,
         style: TextStyle(
           color: StyleColors.appColorThird,
-          fontFamily: "Montserrat",
           fontWeight: FontWeight.w600,
-          fontSize: duSetFontSize(24),
+          fontSize: 24.sp,
           height: 1,
         ),
       ));

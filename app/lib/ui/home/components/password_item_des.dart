@@ -30,20 +30,18 @@ Widget buildPasswordDesItem(
                 item.passUsername,
                 style: TextStyle(
                   color: StyleColors.appColorSecond,
-                  fontFamily: "Montserrat",
-                  fontWeight: FontWeight.w600,
-                  fontSize: duSetFontSize(12),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14.sp,
                   height: 1,
                 ),
               ),
-              SizedBox(height: duSetHeight(2)),
+              SizedBox(height: 2.h),
               Text(
                 item.passEmail,
                 style: TextStyle(
                   color: StyleColors.appTextSecond,
-                  fontFamily: "Montserrat",
                   fontWeight: FontWeight.w400,
-                  fontSize: duSetFontSize(12),
+                  fontSize: 12.sp,
                   height: 1,
                 ),
               )

@@ -18,7 +18,7 @@ Widget buildTextEdit(BuildContext context,
           title,
           textAlign: TextAlign.start,
           style: TextStyle(
-            fontSize: duSetFontSize(12),
+            fontSize: 12.sp,
             color: StyleColors.appTextFurth,
             height: 1.h,
           ),
@@ -52,7 +52,7 @@ Widget inputEmailEdit(
           title,
           textAlign: TextAlign.start,
           style: TextStyle(
-            fontSize: duSetFontSize(12),
+            fontSize: 12.sp,
             color: StyleColors.appTextFurth,
             height: 1.h,
           ),
@@ -72,9 +72,8 @@ Widget inputEmailEdit(
             ),
             style: TextStyle(
               color: StyleColors.appColorSecond,
-              fontFamily: "SFProText",
               fontWeight: FontWeight.w400,
-              fontSize: duSetFontSize(14),
+              fontSize: 14.sp,
             ),
             maxLines: 1,
             autocorrect: false, // 自动纠正

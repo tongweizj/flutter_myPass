@@ -1,6 +1,7 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:mypass/ui/style/style.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // /// 扁平圆角按钮
 // Widget btnFlatButtonWidget({
@@ -30,7 +31,7 @@ import 'package:mypass/ui/style/style.dart';
 //           color: fontColor,
 //           fontFamily: fontName,
 //           fontWeight: fontWeight,
-//           fontSize: duSetFontSize(fontSize),
+//           fontSize: fontSize),
 //           height: 1,
 //         ),
 //       ),
@@ -47,10 +48,8 @@ Widget btnCopyPasswordWidget(String copyString) {
         Clipboard.setData(ClipboardData(text: copyString));
       },
       child: Container(
-          margin: EdgeInsets.only(top: duSetHeight(0), bottom: duSetHeight(0)),
-          width: duSetWidth(15),
-          // height: duSetHeight(67),
-          // color: Colors.yellow,
+          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+          width: 15.w,
           alignment: Alignment.centerLeft,
           child: Icon(
             Icons.content_copy,

@@ -53,7 +53,7 @@ PreferredSizeWidget buildAppBarBlock(
           child: Text(
             "编辑",
             style: TextStyle(
-              fontSize: duSetFontSize(14),
+              fontSize: 14.sp,
               color: Colors.white,
             ),
           ),
@@ -81,9 +81,8 @@ Widget buildPageHeaderBlock(String title, String subtitle) {
               title,
               style: TextStyle(
                 color: StyleColors.appBgSeventh,
-                fontFamily: "Montserrat",
                 fontWeight: FontWeight.w600,
-                fontSize: duSetFontSize(32),
+                fontSize: 32.sp,
                 height: 1.h,
               ),
             )),
@@ -91,9 +90,8 @@ Widget buildPageHeaderBlock(String title, String subtitle) {
           subtitle,
           style: TextStyle(
             color: StyleColors.appColorThird,
-            fontFamily: "Montserrat",
             fontWeight: FontWeight.w600,
-            fontSize: duSetFontSize(14),
+            fontSize: 14.sp,
             height: 1.h,
           ),
         )
@@ -106,7 +104,7 @@ Widget _buildPassBlock({String? title, String? subtitle, Widget? trailing}) {
     title: Text(
       title!,
       style: TextStyle(
-        fontSize: duSetFontSize(14),
+        fontSize: 14.sp,
         color: StyleColors.appTextFurth,
         height: 0,
       ),
@@ -114,9 +112,7 @@ Widget _buildPassBlock({String? title, String? subtitle, Widget? trailing}) {
     subtitle: Text(
       subtitle!,
       style: TextStyle(
-          fontSize: duSetFontSize(16),
-          color: StyleColors.appTextFifth,
-          height: 2.h),
+          fontSize: 16.sp, color: StyleColors.appTextFifth, height: 2.h),
     ),
     trailing: trailing,
     dense: true,
@@ -181,7 +177,7 @@ Widget buildPassInfoBlock(BuildContext context) {
                 "打开",
                 textAlign: TextAlign.right,
                 style: TextStyle(
-                  fontSize: duSetFontSize(14),
+                  fontSize: 14.sp,
                   color: StyleColors.appTextThird,
                 ),
               ),

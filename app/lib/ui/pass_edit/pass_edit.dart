@@ -35,7 +35,7 @@ class _PassEditPageState extends State<PassEditPage> {
     return Container(
       color: StyleColors.appBgPrimary,
       height: 40.h,
-      width: duSetWidth(375),
+      width: 1.sw,
       padding: EdgeInsets.fromLTRB(20.w, 0, 0, 0),
       child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
         MaterialButton(
@@ -51,7 +51,7 @@ class _PassEditPageState extends State<PassEditPage> {
           padding: EdgeInsets.zero,
           child: Text(
             '删除',
-            style: TextStyle(fontSize: duSetFontSize(16)),
+            style: TextStyle(fontSize: 16.sp),
           ),
         ),
       ]),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mypass/ui/style/style.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -22,11 +23,11 @@ class AppDrawer extends StatelessWidget {
               Navigator.pushNamed(context, '/launch');
             },
           ),
-          SizedBox(height: duSetHeight(280)),
+          SizedBox(height: 280.h),
           ListTile(
             title: Text(
               'v1.0.3_build 2021/06/21',
-              style: TextStyle(fontSize: 11, color: Colors.grey[300]),
+              style: TextStyle(fontSize: 11.sp, color: Colors.grey[300]),
             ),
           ),
         ],
@@ -48,7 +49,7 @@ class AppDrawer extends StatelessWidget {
               child: Text("myPass",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20.0,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w500))),
         ]));
   }
@@ -70,7 +71,7 @@ class AppDrawer extends StatelessWidget {
               child: Text(text!,
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 14.0,
+                      fontSize: 14.0.sp,
                       fontWeight: FontWeight.w400)))
         ],
       ),

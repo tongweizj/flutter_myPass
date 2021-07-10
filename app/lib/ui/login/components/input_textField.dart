@@ -23,8 +23,7 @@ Widget inputTextField({
       keyboardType: keyboardType,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: TextStyle(
-            color: StyleColors.appTextFurth, fontSize: duSetFontSize(16)),
+        hintStyle: TextStyle(color: StyleColors.appTextFurth, fontSize: 16.sp),
         contentPadding: EdgeInsets.fromLTRB(12.w, 0, 0, 5.h),
         border: InputBorder.none,
       ),
@@ -32,7 +31,7 @@ Widget inputTextField({
         color: StyleColors.appTextFurth,
         fontFamily: "SFProText",
         fontWeight: FontWeight.w400,
-        fontSize: duSetFontSize(16),
+        fontSize: 16.sp,
       ),
       maxLines: 1,
       autocorrect: false, // 自动纠正

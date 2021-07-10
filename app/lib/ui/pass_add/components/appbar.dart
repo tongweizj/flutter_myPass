@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:mypass/core/view_models/pass_model.dart';
 import 'package:mypass/core/utils/cipher.dart';
 import 'package:mypass/ui/style/style.dart';
@@ -29,7 +31,7 @@ PreferredSizeWidget buildAppBar(
         padding: EdgeInsets.zero,
         child: Text(
           '取消',
-          style: TextStyle(fontSize: duSetFontSize(14)),
+          style: TextStyle(fontSize: 14.sp),
         ),
       ),
       actions: <Widget>[
@@ -60,7 +62,7 @@ PreferredSizeWidget buildAppBar(
           padding: EdgeInsets.zero,
           child: Text(
             '保存',
-            style: TextStyle(fontSize: duSetFontSize(14)),
+            style: TextStyle(fontSize: 14.sp),
           ),
         ),
       ]);

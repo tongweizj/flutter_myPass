@@ -15,7 +15,7 @@ class _LaunchPageState extends State<LaunchPage> {
   Widget _buildLogo() {
     return Container(
       width: 338.w,
-      margin: EdgeInsets.only(top: duSetHeight(40 + 44.0)), // 顶部系统栏 44px
+      margin: EdgeInsets.only(top: (40 + 44.0).h), // 顶部系统栏 44px
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -29,15 +29,14 @@ class _LaunchPageState extends State<LaunchPage> {
             ),
           ),
           Container(
-            margin: EdgeInsets.only(top: duSetHeight(115)),
+            margin: EdgeInsets.only(top: 115.h),
             child: Text(
               "小熊帮你保管小钥匙",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: StyleColors.appColorSecond,
-                fontFamily: "Montserrat",
                 fontWeight: FontWeight.w600,
-                fontSize: duSetFontSize(24),
+                fontSize: 24.sp,
                 height: 1,
               ),
             ),
@@ -48,9 +47,8 @@ class _LaunchPageState extends State<LaunchPage> {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: StyleColors.appTextSecond,
-              fontFamily: "Avenir",
               fontWeight: FontWeight.w400,
-              fontSize: duSetFontSize(14),
+              fontSize: 14.sp,
               height: 1.2,
             ),
           ),
@@ -64,7 +62,7 @@ class _LaunchPageState extends State<LaunchPage> {
     return Container(
       width: 295.w,
       // height: 204,
-      margin: EdgeInsets.only(bottom: duSetHeight(20)),
+      margin: EdgeInsets.only(bottom: 20.h),
       child: Column(
         children: [
           // TODO：注册页面
@@ -107,7 +105,7 @@ class _LaunchPageState extends State<LaunchPage> {
             _buildLogo(),
             Spacer(),
             _buildbuttonList(),
-            SizedBox(height: duSetHeight(40)),
+            SizedBox(height: 40.h),
           ],
         ),
       ),

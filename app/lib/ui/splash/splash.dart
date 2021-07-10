@@ -68,9 +68,8 @@ class _SplashPageState extends State<SplashPage> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: StyleColors.appColorSecond,
-                fontFamily: "Montserrat",
                 fontWeight: FontWeight.w600,
-                fontSize: 24,
+                fontSize: 24.sp,
                 height: 1,
               ),
             ),
@@ -81,10 +80,9 @@ class _SplashPageState extends State<SplashPage> {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: StyleColors.appTextSecond,
-              fontFamily: "Avenir",
               fontWeight: FontWeight.w400,
-              fontSize: 14,
-              height: 1.2,
+              fontSize: 14.sp,
+              height: 1.2.h,
             ),
           ),
         ],
